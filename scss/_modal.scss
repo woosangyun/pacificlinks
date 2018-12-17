@@ -1,0 +1,125 @@
+////////////////////     MODAL     ////////////////////
+
+#modal-wrap{
+	width: 100%;
+	height: 100%;
+	background: rgba(#000,.5);
+	position: fixed;
+	z-index: 100;
+	left: 0;
+	top: 0;
+	display: none;
+	.modal-con{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		background: #fff;
+		display: none;
+		@include box-sizing(border-box);
+		.modal-close{
+			display: block;
+			width: 96px;
+			height: 96px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: url(../_images/common/modal_close.png) no-repeat center;
+			text-indent: -9999px;
+		}
+	}
+}
+
+.modal-sitemap{
+	width: 1120px;
+	.top{
+		p{
+			font-size: 40px;
+			font-weight: 100;
+			color: #fff;
+			line-height: 96px;
+			text-indent: 50px;
+			background: $primary; 
+		}
+	}
+	.sitemap-con{
+		padding: 0 50px 50px;
+		width: 100%;
+		height: 600px;
+		overflow-y: auto;
+		@include box-sizing(border-box);
+		.menu{
+			padding: 50px 0 30px 0;
+			border-bottom: 1px solid $lineColor;
+			.title{
+				font-size: 30px;
+				font-weight: 100;
+				color: #111;
+			}
+			ul{
+				margin-top: 30px;
+				@include clearfix;
+				>li{
+					float: left;
+					width: 25%;
+					>a{
+						font-size: 18px;
+						font-weight: 700;
+						color: $primary;
+					}
+					ul{
+						margin-top: 15px;
+						li{
+							float: none;
+							width: 100%;
+							a{
+								font-size: 14px;
+								color: #666;
+								line-height: 24px;
+								font-weight: 300;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.modal-social{
+	width: 390px;
+	.top{
+		p{
+			font-size: 40px;
+			font-weight: 100;
+			color: #fff;
+			line-height: 96px;
+			text-indent: 50px;
+			background: $primary; 
+		}
+	}
+	.social-con{
+		padding: 30px 0;
+		width: 100%;
+		text-align: center;
+		a{
+			display: inline-block;
+			margin: 0 10px;
+			padding-top: 55px;
+			min-width: 45px;
+			&.facebook{
+				background: url(../_images/common/sns_facebook.png) no-repeat top center;
+			}
+			&.twitter{
+				background: url(../_images/common/sns_twitter.png) no-repeat top center;
+			}
+			&.blog{
+				background: url(../_images/common/sns_blog.png) no-repeat top center;
+			}
+			&.url{
+				background: url(../_images/common/sns_url.png) no-repeat top center;
+			}
+		}
+	}
+}
+
+

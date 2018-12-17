@@ -1,0 +1,8 @@
+이미지 압축저장 소스위치
+
+src/main/java/egovframework/WASTE/ntt/service/impl/BoardNttServiceImpl.java
+90라인참고
+
+원본저장: /data/bbs/게시판코드명/변환파일명
+이미지크기 변경저장: /data/bbs/게시판코드명/thumb/t_변환파일명
+

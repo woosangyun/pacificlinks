@@ -1,0 +1,549 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title></title>
+<script type="text/javascript" src="_list/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="_list/guide.js"></script>
+<link type="text/css" rel="stylesheet" href="_list/guide.css" />
+</head>
+<body>
+<div id="list_wrap">
+	<!-- header s -->
+	<div id="header">
+		<h1>PACIFICLINKS</h1>
+		<ul class="gnb">
+			<li><a href="index.html" class="on">국문</a></li>
+		</ul>
+	</div><!--// header e -->
+
+
+	<!-- container s -->
+	<div id="container">
+		<div id="g_content">
+			<table id="focus" class="mlist">
+				<colgroup>
+				<col width="3%" />
+				<col width="6%" />
+				<col width="14%" />
+				<col width="10%" />
+				<col width="14%" />
+				<col width="10%" />
+				<col width="10%" />
+				<col width="10%" />
+				<col width="*" />
+				</colgroup>
+				<thead>
+					<tr onMouseDown="toggleed(this)">
+						<th class="first">NUM</th>
+						<th>Depth</th>
+						<th>1Depth</th>
+						<th>2Depth</th>
+						<th>3Depth</th>
+						<th>4Depth</th>
+						<th>구분</th>
+						<th>작업완료</th>
+						<th>비고</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01">사용자</td>
+						<td class="itemtit02">메인</td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Program</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="00_main/index.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02">COMPANY</td>
+						<td class="itemtit03">퍼시픽링스 코리아</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="01_company/1.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">홍보대사</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="01_company/2.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">퍼시픽링스 네트웍스</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="01_company/3.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">인재채용</td>
+						<td class="itemtit04">리스트</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="01_company/4.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">상세</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="01_company/4_view.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02">MEMBERSHIP</td>
+						<td class="itemtit03">멤버십소개</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="02_mebership/1.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">입회 및 등록 안내</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="02_mebership/2.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">회원 혜택</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="02_mebership/3.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02">GOLF</td>
+						<td class="itemtit03">글로벌 골프코스</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="03_golf/1.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">국내 골프코스</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="03_golf/2.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">추천골프클럽</td>
+						<td class="itemtit04">목록</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="03_golf/3.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">Le Golf National Golf Club</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="03_golf/legolf.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">Evian Resort Golf Club</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="03_golf/evian.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">Bear Mountain Resort</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="03_golf/bear.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">Mission Hills Country Club</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="03_golf/mission.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">Stadium Course @ TPC Scottsdale</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="03_golf/stadium.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">The Players Stadium Course @ TPC Sawgrass</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+                        <td class="txt_ok">OK</td>
+						<td><a href="03_golf/players.html" target="_blank" class="btn_go">페이지 열기</a></td>
+                    </tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">Royal Hawaiian GOLF CLUB</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="03_golf/royal.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">Kapolei Golf Club</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="03_golf/kapolei.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">Ko Olina Golf Club</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="03_golf/koolina.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02">TRAVEL</td>
+						<td class="itemtit03">골프여행</td>
+						<td class="itemtit04">목록</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="04_travel/1.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">상세</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="04_travel/ryder-cup.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">테마여행</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="04_travel/2.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">프로모션 상품</td>
+						<td class="itemtit04">목록</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="04_travel/3.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">상세</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="04_travel/3_view.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02">CONCIERGE</td>
+						<td class="itemtit03">서비스 소개</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">HTML</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="05_concierge/1.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">이용사례</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">HTML</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="05_concierge/2.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02">MEDIA</td>
+						<td class="itemtit03">뉴스</td>
+						<td class="itemtit04">리스트</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="06_media/1.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">상세</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="06_media/1_view.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">프로모션</td>
+						<td class="itemtit04">리스트</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="06_media/2.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">상세</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="06_media/2_view.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">스폰서십</td>
+						<td class="itemtit04">목록</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="06_media/3.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">상세</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="06_media/3_view.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02">COMMUNITY</td>
+						<td class="itemtit03">상담/문의</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="07_community/1.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+					<tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">공지사항</td>
+						<td class="itemtit04">목록</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="07_community/2.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03"></td>
+						<td class="itemtit04">상세</td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Board</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="07_community/2_view.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+                    <tr onMouseDown="toggleed(this)">
+						<th></th>
+						<td class="itemtit01"></td>
+						<td class="itemtit02"></td>
+						<td class="itemtit03">FAQ</td>
+						<td class="itemtit04"></td>
+						<td class="itemtit05"></td>
+						<td class="itemtit06">Html</td>
+						<td class="txt_ok">OK</td>
+						<td><a href="07_community/3.html" target="_blank" class="btn_go">페이지 열기</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!--// container e -->
+</div>
+</body>
+<script type="text/javascript">$(document).ready(function() {$('#focus').tableHover();});</script>
+<script type="text/javascript">
+	$(function(){
+		var total = $("#focus tbody tr th").length;
+		var ok = $("#focus .txt_ok").filter(function(){return $(this).text().length == 10;}).length;
+		var per = Math.round((ok * 100) / total);
+		$("#per").html(per + "%").css("color","red");
+
+		$.each($("td:last a","#focus tbody tr"), function(){
+			var fn = $(this).attr("href").split(".ht")[0].split("/")[3];
+
+			if(typeof fn != "undefined") $(this).parent().append("<span class='fn'>"+fn+"</span>");
+		});
+		$("title").text($("h1").text());
+	});
+
+
+	var st1 = new SortableTable(document.getElementById("focus"), ["Number" ,"String","String", "String", "String", "String"]);
+	$(function(){
+
+		var tds = $("#focus tbody  th:first-child");
+		for(var i=0; i < tds.length; i++) {
+			$(tds[i]).html(i+1);
+
+		}
+	});
+	$('#focus thead th').click(function(){
+		//alert("a");
+		var tds = $("#focus tbody  th:first-child");
+		for(var i=0; i < tds.length; i++) {
+			//alert(tds[i].firstChild.nodeValue);
+			$(tds[i]).html(i+1);
+		}
+	});
+</script>
+<script type="text/javascript">
+//<!--
+	function toggleed(trEle){
+	 //alert(trEle.parentElement.rows)
+	 var rows = trEle.parentElement.rows;
+
+	 for(i = 0; i < rows.length; i++){
+		if(rows[i] == trEle){
+		 trEle.style.backgroundColor = "#ffebeb"
+		}else{
+		 rows[i].style.backgroundColor = ""
+		}
+	 }
+	}
+//-->
+</script>
+<script type="text/javascript">
+	// popup
+	 function openPopup(url, winName, pwidth, pheight, scrollYN, resizeYN) {
+	 var win = null;
+
+	 var winL = (screen.width-pwidth)/2;
+	 var winT = (screen.height-pheight)/2;
+	 var spec = 'toolbar=no,';
+	 spec += 'status=no,';
+	 spec += 'location=yes,';
+	 spec += 'height='+pheight+',';
+	 spec += 'width='+pwidth+',';
+	 spec += 'top='+winT+',';
+	 spec += 'left='+winL+',';
+	 spec += 'scrollbars='+(scrollYN == undefined ? "yes" : scrollYN)+',';
+	 spec += 'resizable='+(resizeYN == undefined ? "no" : resizeYN);
+	 win = window.open(url, winName, spec);
+	 if(parseInt(navigator.appVersion) >= 4) {
+	  win.window.focus();
+	 }
+ }
+</script>
+</html>

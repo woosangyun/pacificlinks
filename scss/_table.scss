@@ -1,0 +1,131 @@
+/* table */
+
+@mixin tableButton{
+	line-height: 16px;
+	background: #7c7c7c;
+	color: $white;
+	min-width: 60px;
+	text-align: center;
+	border: none;
+	font-weight: 700;
+	padding: 0 10px;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+table{ 
+	border-top:2px solid #333; 
+	text-align:left;
+	width: 100%;
+	margin-top: 40px;
+	th{
+		border-bottom:1px solid $lineColor;
+		border-right:1px solid $lineColor; 
+		padding:20px; 
+		color:$textDark;
+		font-weight: 500;
+		background:#f5f5f5; 
+		vertical-align:middle;
+		line-height: 26px;
+  		font-size: 16px;
+		text-align: center;
+		button{
+			@include tableButton;
+		}
+	}
+	td{
+		border-bottom:1px solid $lineColor;
+		border-right:1px solid $lineColor;
+		padding:17px 20px; 
+		vertical-align:middle;
+		line-height: 18px;
+		button{
+			@include tableButton;
+		}
+	}
+	th.center,td.center{
+		text-align: center;
+		padding:17px 10px;
+	}
+	th.right,td.right{
+		text-align: right;
+		padding:17px 20px;
+	}
+	th:last-child,td:last-child{
+		border-right:none;
+	}
+	th.boR, td.boR{
+		border-right:1px solid $lineColor;
+	}
+	tfoot{
+		td{
+			background: rgba($point,0.08)
+		}
+	}
+	tbody{
+		th{
+			background: #fff;
+		}
+	}
+}
+
+table.center{ 
+	text-align:center;
+	th,td{
+		padding:20px;
+	}
+	th.left,td.left{
+		text-align: left;
+		padding:17px 20px;
+	}
+	th.right,td.right{
+		text-align: right;
+		padding:20px;
+	}
+}
+
+.msg_touch_help {
+	
+	display: none;
+	
+}
+
+/******************************     TABLE SCROLL     ******************************/
+
+@media screen and (max-width:960px){
+	
+	table{
+		th{
+			font-size: 13px;
+			line-height: 18px;
+			padding: 14px;
+		}
+		td{
+			font-size: 13px;
+			line-height: 18px;
+		}
+	}
+	
+	.table_inner.scroll {
+		position: relative;
+		overflow: hidden;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.table_inner.scroll table{width:840px;}
+	.msg_touch_help {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: block;
+		width: 80px;
+		height: 80px;
+		margin-top: -40px;
+		margin-left: -40px;
+		//@include opacity(0.5);
+
+	}
+	.msg_touch_help img{width: 80px;height: 80px;}
+	
+}
+

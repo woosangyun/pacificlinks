@@ -1,0 +1,121 @@
+/*   Main   */
+
+@import "compass/css3";
+@import "color";
+@import "mixin";
+
+
+
+////////////////////     PopUp     ////////////////////
+ 
+.pop-wrap{
+    .wrap{
+         padding: 30px 30px;   
+    }
+    h2{
+        font-size: 24px;
+        color: #222;
+    }
+    h3{
+        font-size: 18px;
+        margin-top: 40px;
+        color: #222;
+    }
+    h4{
+        font-size: 14px;
+        margin-top: 20px;
+        color: #222;
+    }
+    .text{
+        margin-top: 20px;
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+
+.top{
+    line-height: 60px;
+    background: $point;
+    text-indent: 20px;
+    color: #fff;
+    font-size: 24px;
+    
+}
+
+
+
+
+
+/* ListStyle */
+
+// Line
+.list-style01{
+	>li{
+		@include listStyle(10px, 24px, "../_images/common/bu_line.png",12px);
+		font-size: 14px;
+		font-weight: normal;
+        color: #666;
+	}	
+}
+
+// Box
+.list-style02{
+	>li{
+		@include listStyle(10px, 26px, "../_images/common/bu_box.png",12px);
+		//font-size: 14px;
+		margin-bottom: 10px;
+		p{
+			font-weight: normal;
+			line-height: 24px;
+		}
+	}
+}
+
+// Number
+.list-style03{
+	margin-top: 20px;
+	>li{
+		font-size: 14px;
+		list-style:decimal;
+		margin-left: 20px;
+		line-height: 24px;
+		margin-bottom: 10px;
+	}
+}
+
+// Text Ex) hangeul
+.list-style04{
+	margin-top: 20px;
+	>li{
+		position: relative;
+		padding-left: 25px;
+		line-height: 24px;
+		font-size: 14px;
+		em{
+			position: absolute;
+			top: 2px;
+			left: 0;
+			font-size: 14px;
+            font-style: normal;
+		}
+	}
+}
+
+// Custom Number
+.list-style05{
+	margin-top: 20px;
+	>li{
+		position: relative;
+		padding-left: 40px;
+		margin-bottom: 10px;
+		font-size: 14px;
+		span{
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: $point;
+			padding-right: 10px;
+			border-right: 1px solid $lineColor;
+		}
+	}
+}

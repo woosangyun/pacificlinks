@@ -1,0 +1,718 @@
+/*   Main   */
+
+@import "compass/css3";
+@import "color";
+@import "mixin";
+@import "form";
+@import "layout";
+@import "header";
+@import "footer";
+@import "modal";
+
+
+
+.visual{
+	height: 100vh;
+	.image-wrap{
+		width: 100%;
+		height: 100%;
+        position: relative;
+		.item{
+			width: 100%;
+			height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            //animation: visualTrans 5s;
+            transition: 1s;
+            .container{
+                display: flex;
+                height: 100%;
+                justify-content: space-between;
+                align-items: center;
+                .text-wrap{
+                    justify-content: flex-start;
+                    align-self: center;
+                    .slogan{
+                        height: 280px;
+                        .key{
+                            font-size: 20px;
+                            text-transform: uppercase;
+                            color: #fff;
+                            font-weight: 500;
+                        }
+                        .title{
+                            margin-top: 30px;
+                            color: #fff;
+                            font-weight: 500;
+                            font-size: 60px;
+                        }
+                        .text{
+                            color: #fff;
+                            margin-top: 20px;
+                            line-height: 26px;
+                        }
+                    }
+                    a{
+                        line-height: 54px;
+                        border: 1px solid #fff;
+                        text-align: center;
+                        font-size: 18px;
+                        color: #fff;
+                        font-weight: 500;
+                        padding: 0 45px;
+                        display: inline-block;
+                        border-radius: 50px;
+                    }
+                }
+            }
+            &:nth-child(1){
+                background: url(../_images/main/visual1.jpg) no-repeat center / cover;
+            }
+            &:nth-child(2){
+                background: url(../_images/main/visual2.jpg) no-repeat center / cover;
+            }
+            &:nth-child(3){
+                background: url(../_images/main/visual3.jpg) no-repeat center / cover;
+            }
+            &.on{
+                opacity: 1;
+                //animation: visualTrans 5s;
+                z-index: 1;
+            }
+		}
+        .count{
+            height: 360px;
+            strong{
+                color: #fff;
+                font-size: 50px;
+                font-weight: 500;
+                vertical-align: top;
+                display: inline-block;
+            }
+            span{
+                color: #fff;
+                font-size: 20px;
+                vertical-align: top;
+                font-weight: 100;
+                display: inline-block;
+                padding-top: 7px;
+            }
+        }
+	}
+    .scroll-wrap{
+        position: relative;
+        p{
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            bottom: 70px;
+            color: #fff;
+            font-weight: 500;
+            img{
+                margin-right: 15px;
+                vertical-align: middle;
+                animation: scroll 2s infinite;
+                transform: translateY(-20px);
+            }
+        }
+    }
+    .ui{
+        position: relative;
+        ul{
+            position: absolute;
+            bottom: 70px;
+            display: flex;
+            z-index: 1;
+            justify-content: center;
+            width: 100%;
+            li{
+                width: 20px;
+                height: 20px;
+                transition: 1s ease;
+                border: 4px solid white;
+                border-radius: 20px;
+                margin: 0 5px;
+                @include box-sizing(border-box);
+                &.on{
+                    width: 50px;
+                    background: white;
+                }
+            }
+        }
+    }
+} 
+
+@keyframes scroll{
+    75%{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+.membership{
+	margin-top: 200px;
+	position: relative;
+	.box{
+		position: relative;
+		border: 1px solid #c2b19c;
+		width: calc(100% - 40px);
+		padding: 40px 50px;
+		z-index: 1;
+		@include box-sizing(border-box);
+		.key{
+			color: $primary;
+			font-size: 18px;
+			line-height: 24px;
+			text-transform: uppercase;
+			font-weight: 500;
+		}
+		.title{
+			font-size: 40px;
+			line-height: 46px;
+			font-weight: 100;
+			padding: 35px 0 0 50px;
+			color: #222;
+			strong{
+				font-size: 40px;
+				color: #222;
+				font-weight: 500;
+			}
+		}
+		a{
+			font-size: 16px;
+			color: #222;
+			margin: 40px 0 0 50px;
+			padding-right: 40px;
+			background: url(../_images/main/arrow1.png) no-repeat right center / 30px;
+			display: inline-block;
+		}
+	}
+	img{
+		position: absolute;
+		top: 40px;
+		right: 15px;
+	}
+}
+
+.course-wrap{
+	margin-top: 300px;
+	.wrap{
+		position: relative;
+		border-top: 1px solid #c2c89a;
+		border-bottom: 1px solid #c2c89a;
+		height: 1148px;
+	}
+	.title-wrap{
+		padding: 60px 0 0 60px;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		.key{
+			color: $point;
+			font-size: 18px;
+			line-height: 24px;
+			text-transform: uppercase;
+			font-weight: 500;
+		}
+		.title{
+			margin: 40px 0 0 50px;
+			font-size: 50px;
+			line-height: 60px;
+			font-weight: 100;
+			color: #222;
+			strong{
+				font-weight: 500;
+				font-size: 50px;
+				color: #222;
+			}
+		}
+		a{
+			font-size: 16px;
+			color: #222;
+			margin: 40px 0 0 50px;
+			padding-right: 40px;
+			background: url(../_images/main/arrow2.png) no-repeat right center / 30px;
+			display: inline-block;
+		}
+	}
+	.course{
+		position: absolute;
+		.text-wrap{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			background: #fff;
+			padding: 40px 60px 0 0; 
+			.key{
+				color: $point;
+				font-size: 16px;
+				text-transform: uppercase;
+				font-weight: 500;
+				
+			}
+			.title{
+				font-size: 28px;
+				line-height: 32px;
+				font-weight: 100;
+				margin-top: 25px;
+				color: #222;
+				font-weight: 500;
+				text-transform: uppercase;
+			}
+			.text{
+				font-size: 16px;
+				color: #666;
+				margin-top: 15px;
+			}
+		}
+		&.one{
+			top: -60px;
+			left: 0;
+			background: url(../_images/main/course1.jpg) no-repeat center;
+			height: 640px;
+			width: 50%;
+			.text-wrap{
+				padding-right: 140px;
+			}
+		}
+		&.two{
+			top: 450px;
+			right: 0;
+			height: 470px;
+			width: 31.6239%;
+			background: url(../_images/main/course2.jpg) no-repeat center;
+			.text-wrap{
+				left: -30px;
+				padding-right: 50px;
+			}
+			
+		}
+		&.three{
+			top: 740px;
+			left: 0;
+			height: 470px;
+			width: 40.1709%;
+			background: url(../_images/main/course3.jpg) no-repeat center;
+		}
+	}
+}
+
+.travel{
+	margin-top: 260px;
+	background: url(../_images/main/travel.jpg) no-repeat center;
+	background-size: cover;
+	.wrap{
+		position: relative;
+		height: 600px;
+	}
+	.logo{
+		position: absolute;
+		right: 0;
+		top: -100px;
+	}
+	.text-wrap{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		background: #fff;
+		padding: 40px 170px 0 0;
+		@include box-sizing(border-box);
+		&:before{
+			display: block;
+			width: 100%;
+			height: 100%;
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 100%;
+			background: #fff;
+		}
+		.key{
+			color: $primary;
+			font-size: 16px;
+			text-transform: uppercase;
+			font-weight: 500;
+		}
+		.title{
+			font-size: 40px;
+			line-height: 48px;
+			font-weight: 100;
+			margin-top: 25px;
+			color: #222;
+			font-weight: 100;
+			strong{
+				font-weight: 500;
+				color: #222;
+				font-size: 40px;
+			}
+			span{
+				font-size: 16px;
+				color: #666;
+				padding-left: 20px;
+			}
+		}
+		a{
+			font-size: 16px;
+			color: #222;
+			margin-top: 25px;
+			padding-right: 40px;
+			background: url(../_images/main/arrow1.png) no-repeat right center / 30px;
+			display: inline-block;
+		}
+	}
+}
+
+.pacific{
+	margin-top: 200px;
+	height: 510px;
+	.wrap{
+		position: relative;
+	}
+	.company{
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 374px;
+		background: url(../_images/main/pacific1.jpg) no-repeat top right;
+		width: 65.8119%;
+		a{
+			display: block;
+			width: 100%;
+			height: 100%;
+            @include box-sizing(border-box);
+            padding: 160px 0 0 50px;
+		}
+		.key{
+			color: $primary;
+			font-size: 20px;
+			font-weight: 500;
+			text-transform: uppercase;
+		}
+		.title{
+			color: #fff;
+			font-size: 50px;
+			font-weight: 700;
+			margin-top: 10px;
+			text-transform: uppercase;
+		}
+		.text{
+			font-size: 20px;
+			line-height: 30px;
+			margin-top: 30px;
+			color: #fff;
+		}
+	}
+	.interview{
+		position: absolute;
+		top: 215px;
+		right: 0;
+		width: 31.6239%;
+        .movie-con{
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            max-width: 100%; 
+            height: auto; 
+            iframe{
+                position: absolute; 
+                top: 0; 
+                left: 0; 
+                width: 100%; 
+                height: 100%;
+            }
+        }		
+	}
+}
+
+
+@media screen and (max-width:960px){
+	
+	.visual{
+        height: 500px;
+        margin-top: 60px;
+        .image-wrap{
+            .item{
+                .container{
+                    .text-wrap{
+                        .slogan{
+                            height: 200px;
+                            .key{
+                                font-size: 13px;
+                                margin-top: 25px;
+                            }
+                            .title{
+                                margin-top: 25px;
+                                font-size: 30px;
+                                line-height: 32px;
+                            }
+                            .text{
+                                color: #fff;
+                                margin-top: 10px;
+                                line-height: 17px;
+                            }
+                        }
+                        a{
+                            line-height: 33px;
+                            font-size: 13px;
+                            padding: 0 25px;
+                        }
+                    }
+                }
+            }
+            .count{
+                height: 210px;
+                vertical-align: top;
+                width: 120px;
+                strong{
+                    font-size: 24px;
+                }
+                span{
+                    font-size: 13px;
+                    padding-top: 0;
+                }
+            }
+        }
+        .scroll-wrap{
+            display: none;
+        }
+        .ui{
+            ul{
+                bottom: 25px;
+            }
+        }
+    }
+
+	.membership{
+		margin-top: 100px;
+		@include clearfix;
+		.box{
+			position: absolute;
+			left: 21px;
+			top: 0;
+			width: calc(100% - 62px);
+			padding: 20px 20px 230px 20px;
+			z-index: 1;
+			.key{
+				font-size: 12px;
+				line-height: 14px;
+			}
+			.title{
+				font-size: 18px;
+				line-height: 23px;
+				padding: 18px 0 0 23px;
+				strong{
+					font-size: 18px;
+				}
+			}
+			a{
+				font-size: 12px;
+				margin: 20px 0 0 25px;
+				padding-right: 20px;
+				background-size: 15px;
+			}
+		}
+		img{
+			position: relative;
+			top: 0;
+			right: 0;
+			margin-top: 185px;
+			width: calc(100% - 20px);
+			float: right;
+		}
+	}
+
+	.course-wrap{
+		margin-top: 100px;
+		@include clearfix;
+		.wrap{
+			position: relative;
+			border-top: none;
+			border-bottom: none;
+			height: auto;
+		}
+		.title-wrap{
+			padding: 0 0 0 30px;
+			position: relative;
+			top: 0;
+			left: 0;
+			.key{
+				font-size: 12px;
+				line-height: 14px;
+			}
+			.title{
+				margin: 20px 0 0 25px;
+				font-size: 25px;
+				line-height: 30px;
+				strong{
+					font-size: 25px;
+				}
+			}
+			a{
+				font-size: 12px;
+				margin: 20px 0 0 25px;
+				padding-right: 20px;
+				background-size: 15px; 
+			}
+		}
+		.course{
+			position: relative;
+			margin-top: 30px;
+			.text-wrap{
+				padding: 20px 15px 0 0;
+				bottom: -25px;
+				.key{
+					font-size: 12px;
+
+				}
+				.title{
+					font-size: 16px;
+					line-height: 20px;
+					margin-top: 18px;
+				}
+				.text{
+					font-size: 12px;
+					margin-top: 10px;
+				}
+			}
+			&.one{
+				float: left;
+				top: 0;
+				left: 0;
+				background-size: cover;
+				height: 0;
+				width: 82.5825%;
+				padding-bottom: 109%;
+				.text-wrap{
+					padding-right: 15px;
+				}
+			}
+			&.two{
+				float: right;
+				margin-top: 60px;
+				top: 0;
+				right: 0;
+				height: 0;
+				width: 65.1651%;
+				padding-bottom: 78.6618%;
+				background-size: cover;
+
+			}
+			&.three{
+				float: left;
+				margin-top: 60px;
+				top: 0;
+				left: 0;
+				height: 0;
+				width: 69.6696%;
+				padding-bottom: 100%;
+				background-size: cover;
+			}
+		}
+	}
+
+	.travel{
+		margin-top: 100px;
+		.wrap{
+			position: relative;
+			height: 375px;
+		}
+		.logo{
+			position: absolute;
+			right: 0;
+			top: -50px;
+			img{
+				width: 100px;
+			}
+		}
+		.text-wrap{
+			padding: 30px 0 0 30px;
+			width: 100%;
+			@include box-sizing(border-box);
+			&:before{
+				display: none;
+			}
+			.key{
+				font-size: 12px;
+			}
+			.title{
+				font-size: 20px;
+				line-height: 24px;
+				font-weight: 100;
+				margin-top: 20px;
+				strong{
+					font-size: 20px;
+				}
+				span{
+					font-size: 12px;
+					padding-left: 10px;
+				}
+			}
+			a{
+				font-size: 12px;
+				margin-top: 20px;
+				padding-right: 20px;
+				background-size: 15px;
+			}
+		}
+	}
+
+	.pacific{
+		margin-top: 100px;
+		height: auto;
+		@include clearfix;
+		.company{
+			position: relative;
+			height: 0;
+			background-size: cover;
+			padding-bottom: 64.7147%;
+			width: 100%;
+			@include box-sizing(border-box);
+            a{
+                padding: 24.0240% 0 0 7.5075%;
+            }
+			.key{
+				color: $primary;
+				font-size: 13px;
+				line-height: 16px;
+			}
+			.title{
+				font-size: 25px;
+				margin-top: 10px;
+			}
+			.text{
+				font-size: 13px;
+				margin-top: 15px;
+				line-height: 18px;
+			}
+		}
+		.interview{
+			margin-top: 10px;
+			float: right;
+			position: relative;
+			width: 100%;
+            top: 0;
+		}
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

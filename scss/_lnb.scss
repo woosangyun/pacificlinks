@@ -1,0 +1,125 @@
+////////////////////     LNB     ////////////////////
+
+#lnb{
+	line-height: 59px;
+	height: 60px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 1;
+	&:before{
+		display: block;
+		content: "";
+		height: 100%;
+		width: 200%;
+		background: #fff;
+		position: absolute;
+		top: 0;
+		right: 100%;
+	}
+	.main-lnb{
+		float: left;
+		border-bottom: 1px solid $lineColor;
+		li{
+			float: left;
+			width: 255px;
+			position: relative;
+			&.home{
+				width: 60px;
+				a{
+					background: url(../_images/common/lnb_home.png) no-repeat center;
+					text-indent: -9999px;
+					display: block;
+					height: 100%;
+				}
+			}
+			>a{
+				color: #333;
+				text-indent: 20px;
+				display: block;
+				background: url(../_images/common/lnb_arrow.png) no-repeat right top #fff;
+				font-size: 16px;
+				line-height: 60px;
+				&.on{
+					background-position: right bottom;
+				}
+			}
+			ul{
+				border-top: 1px solid $lineColor;
+				position: absolute;
+				left: -1px;
+				top: 100%;
+				background-color: $white;
+				display: none;
+				width: 100%;
+				@include box-sizing(border-box);
+				li{
+					border: 1px solid $lineColor;
+					border-top: none;
+					background: #fff;
+					a{
+						line-height: 59px;
+						background: none;
+						&.on{
+							color: $primary;
+							font-weight: 700;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width:960px){
+	
+	#lnb{
+		line-height: 45px;
+		height: 46px;
+		width: 100%;
+		bottom: -46px;
+		float: none;
+		.main-lnb{
+			width: 100%;
+			>li{
+				display: none;
+				float: left;
+				width: 100%;
+				&.home{
+					display: none;
+				}
+				>a{
+					font-size: 14px;
+					background-size: 45px;
+					line-height: 45px;
+					&.on{
+						background-position: right bottom;
+					}
+				}
+				ul{
+					width: 100%;
+					li{
+						width: 100%;
+						a{
+							line-height: 45px;
+							font-size: 12px;
+						}
+					}
+				}
+				&:last-child{
+					display: block;
+				}
+			}
+		}
+	}	
+}
+
+
+
+
+
+
+
+
+
+

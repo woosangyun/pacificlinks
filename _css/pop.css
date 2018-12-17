@@ -1,0 +1,25 @@
+/*   Main   */
+.pop-wrap .wrap { padding: 30px 30px; }
+.pop-wrap h2 { font-size: 24px; color: #222; }
+.pop-wrap h3 { font-size: 18px; margin-top: 40px; color: #222; }
+.pop-wrap h4 { font-size: 14px; margin-top: 20px; color: #222; }
+.pop-wrap .text { margin-top: 20px; font-size: 14px; line-height: 24px; }
+
+.top { line-height: 60px; background: #99a357; text-indent: 20px; color: #fff; font-size: 24px; }
+
+/* ListStyle */
+.list-style01 > li { line-height: 24px; padding-left: 10px; text-align: left; background: url("../_images/common/bu_line.png") no-repeat 0 12px; font-size: 14px; font-weight: normal; color: #666; }
+
+.list-style02 > li { line-height: 26px; padding-left: 10px; text-align: left; background: url("../_images/common/bu_box.png") no-repeat 0 12px; margin-bottom: 10px; }
+.list-style02 > li p { font-weight: normal; line-height: 24px; }
+
+.list-style03 { margin-top: 20px; }
+.list-style03 > li { font-size: 14px; list-style: decimal; margin-left: 20px; line-height: 24px; margin-bottom: 10px; }
+
+.list-style04 { margin-top: 20px; }
+.list-style04 > li { position: relative; padding-left: 25px; line-height: 24px; font-size: 14px; }
+.list-style04 > li em { position: absolute; top: 2px; left: 0; font-size: 14px; font-style: normal; }
+
+.list-style05 { margin-top: 20px; }
+.list-style05 > li { position: relative; padding-left: 40px; margin-bottom: 10px; font-size: 14px; }
+.list-style05 > li span { position: absolute; top: 0; left: 0; color: #99a357; padding-right: 10px; border-right: 1px solid #e5e5e5; }

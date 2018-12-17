@@ -1,0 +1,55 @@
+// mixin
+
+@mixin clearfix{
+	&:after{
+	content:"";
+	display:block;
+	clear:both;
+	}
+}
+
+@mixin strokeBox($weight, $padding, $align){
+	@if $weight == null {
+     $weight: 1px;
+   }
+	@if $padding == null {
+     $padding: 0;
+   }
+	@if $align == null {
+     $align: left;
+   }
+	border: $weight solid $lineColor;
+	padding: $padding;
+	text-align: $align;
+}
+
+@mixin listStyle($padding, $lineHeight, $image, $bgPoz){
+
+	line-height: $lineHeight;
+	padding-left: $padding;
+	text-align: left;
+	background: url($image) no-repeat 0 $bgPoz;
+}
+
+@mixin ellipsis($display:null){
+   @if $display != null {
+      display: $display;
+   }
+   white-space: nowrap;
+   word-break: break-all;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+@mixin multiline_ellipsis($line){
+   display: -webkit-box;
+   white-space: normal;
+   @if $line != null {
+      -webkit-line-clamp: $line;
+   }
+   word-break: break-all;
+   overflow: hidden;
+   text-overflow:ellipsis;
+   -webkit-box-orient: vertical;
+
+}
