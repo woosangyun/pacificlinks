@@ -60,6 +60,9 @@
 <c:if test="${boardNo eq 'promPd'}">
 	<c:set var="boardKor" value="프로모션 상품"/>
 </c:if>
+<c:if test="${boardNo eq 'theme'}">
+	<c:set var="boardKor" value="테마여행 상품"/>
+</c:if>
 <c:if test="${boardNo eq 'news'}">
 	<c:set var="boardKor" value="뉴스"/>
 </c:if>

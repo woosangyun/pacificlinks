@@ -27,9 +27,6 @@
 	var m3 = null;
 	
 </script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126622113-1"></script>
-<script type="text/javascript" src="../_js/googleAnalytics.js"></script>
 
 <script type="text/javascript" src="../_js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="../_js/jquery.easing.1.3.js"></script>
@@ -98,7 +95,7 @@
 	</div>
 	
 	<!--   CONTENTS   -->
-	<section id="contents" class="container">
+	<section id="contents" class="container" tabindex="-1">
 		
 		<h3>인재채용</h3>
 		

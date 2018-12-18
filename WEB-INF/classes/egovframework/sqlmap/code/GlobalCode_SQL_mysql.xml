@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="GlobalCode">
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="globalCodeVO" type="egovframework.WASTE.code.service.GlobalCodeVO"/>
+	
+	<resultMap id="GlobalCodeMap" class="globalCodeVO" >
+		<result property="upperNm" column="UPPER_NM" />
+		<result property="areaNm" column="AREA_NM" />		
+	</resultMap>
+	
+	<resultMap id="GlobalCodeMapCnt" class="globalCodeVO" >		
+		<result property="areaNm" column="AREA_NM" />		
+		<result property="areaTot" column="AREA_TOT" />		
+	</resultMap>
+	
+
+	<select id="globalCodeDAO.selectGlobalCodeList" parameterClass="globalCodeVO" resultMap="GlobalCodeMap">
+		SELECT * FROM GLOBAL_CODE
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="upperNm">
+				UPPER_NM = #upperNm#
+			</isNotEmpty>
+			<isEmpty prepend="AND" property="upperNm">
+				UPPER_NM != '대륙' AND UPPER_NM != 'TOP'
+			</isEmpty>
+		</dynamic>	
+	</select>
+
+	<select id="globalCodeDAO.selectGlobalCodeData" parameterClass="globalCodeVO" resultMap="GlobalCodeMap">
+		SELECT * FROM GLOBAL_CODE
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="upperNm">
+				UPPER_NM = #upperNm#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="areaNm">
+				AREA_NM = #areaNm#
+			</isNotEmpty>
+		</dynamic>	
+	</select>
+
+	<select id="globalCodeDAO.selectGlobalCnt" resultMap="GlobalCodeMapCnt">
+		SELECT B.AREA_NM, COUNT(*) AS AREA_TOT 
+			FROM TN_BBS_NTT A LEFT JOIN GLOBAL_CODE B ON A.FIELD1 = B.AREA_NM 
+			WHERE A.BOARD_NO='golf' AND A.DELETE_AT='N' GROUP BY B.AREA_NM
+
+		UNION ALL
+
+		SELECT B.AREA_NM, COUNT(*) AS AREA_TOT 
+			FROM TN_BBS_NTT A LEFT JOIN GLOBAL_CODE B ON A.FIELD2 = B.AREA_NM 
+			WHERE A.BOARD_NO='golf' AND A.DELETE_AT='N' GROUP BY B.AREA_NM	
+	</select>
+	
+	<insert id="globalCodeDAO.insertGlobalCode" parameterClass="globalCodeVO">
+		<![CDATA[
+			INSERT
+				INTO
+					GLOBAL_CODE (UPPER_NM, AREA_NM)
+				VALUES (#upperNm#, #areaNm#)		  
+		]]>
+	</insert>
+	
+	<update id="globalCodeDAO.updateGlobalCode" parameterClass="globalCodeVO">
+		UPDATE GLOBAL_CODE SET						
+			UPPER_NM = #upperNm#,						
+			AREA_NM = #newAreaNm#				
+		WHERE AREA_NM = #areaNm#	
+	</update>
+	
+	<delete id="globalCodeDAO.deleteGlobalCode" parameterClass="globalCodeVO">
+		DELETE FROM GLOBAL_CODE WHERE AREA_NM = #areaNm#
+	</delete>
+	
+</sqlMap>

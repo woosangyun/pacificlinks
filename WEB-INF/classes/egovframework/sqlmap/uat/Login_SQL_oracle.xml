@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Login">
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap" />
+	<typeAlias  alias="loginVO" type="egovframework.WASTE.cmmn.LoginVO"/>
+
+	<!-- 로그인 처리를 위한 resultMap -->
+	<resultMap id="loginMap" class="loginVO">
+		<result property="managerId" column="MANAGER_ID" />
+		<result property="managerNm" column="MANAGER_NM" />
+		<result property="password" column="PASSWORD" />
+		<result property="telephone" column="TELEPHONE" />
+		<result property="mobile" column="MOBILE" />
+		<result property="managerType" column="MANAGER_TYPE" />
+		<result property="lastLogin" column="LAST_LOGIN" />
+	</resultMap>
+	
+	<select id="loginDAO.actionLogin" resultMap="loginMap">
+		SELECT
+			MANAGER_ID,
+			MANAGER_NM,
+			PASSWORD,
+			TELEPHONE,
+			MOBILE,
+			MANAGER_TYPE,
+			LAST_LOGIN
+		FROM
+			WASTE.WASTE_MNG		
+		WHERE
+			MANAGER_ID = #managerId#
+		AND
+			PASSWORD = #password#
+	</select>
+	
+	<update id="loginDAO.updateLastLogin" parameterClass="loginVO">
+		UPDATE
+			WASTE.WASTE_MNG
+		SET
+			LAST_LOGIN = SYSDATE
+		WHERE
+			1=1
+		AND 
+			MANAGER_ID = #managerId#
+	</update>
+	
+	<resultMap id="loginUsrMap" class="loginVO">
+		<result property="managerNm" column="NAME" />
+		<result property="email" column="EMAIL" />
+	</resultMap>
+	
+	<select id="loginDAO.gbLogin" resultMap="loginUsrMap">
+		SELECT
+			NAME,
+			EMAIL
+		FROM
+			(
+				SELECT
+					ROWNUM RNUM,
+					T.*
+				FROM
+					(
+						SELECT
+							*
+						FROM
+							WCMS.SDB_WCMS_MEMBER 
+						WHERE 1=1
+						AND ID = #managerId#
+						AND PASSWD = #password#
+					) T
+			)
+	</select>
+	
+</sqlMap>

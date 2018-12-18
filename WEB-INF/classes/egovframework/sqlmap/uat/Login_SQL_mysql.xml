@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Login">
+	<typeAlias  alias="loginVO" type="egovframework.WASTE.cmmn.LoginVO"/>
+
+	<!-- 로그인 처리를 위한 resultMap -->
+	<resultMap id="loginMap" class="loginVO">
+		<result property="managerId" column="MANAGER_ID" />
+		<result property="managerNm" column="MANAGER_NM" />
+		<result property="password" column="PASSWORD" />
+		<result property="managerType" column="MANAGER_TYPE" />
+		<result property="lastLogin" column="LAST_LOGIN" />
+		<result property="mngNo" column="MNG_NO" />
+		<result property="creater" column="CREATER" />
+		<result property="creationDate" column="CREATION_DATE" />
+		<result property="updater" column="UPDATER" />
+		<result property="updateDate" column="UPDATE_DATE" />
+
+
+	</resultMap>
+	
+	<select id="loginDAO.actionLogin" resultMap="loginMap">
+		SELECT
+			*
+		FROM
+			TN_MNG		
+		WHERE
+			MANAGER_ID = #managerId#
+		AND
+			PASSWORD = #password#
+	</select>
+	
+	<update id="loginDAO.updateLastLogin" parameterClass="loginVO">
+		UPDATE
+			TN_MNG
+		SET
+			LAST_LOGIN = SYSDATE
+		WHERE
+			1=1
+		AND 
+			MANAGER_ID = #managerId#
+	</update>
+	
+	
+</sqlMap>

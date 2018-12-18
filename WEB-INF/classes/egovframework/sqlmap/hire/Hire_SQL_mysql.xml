@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Hire">
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="hireVO" type="egovframework.WASTE.hire.service.HireVO"/>
+	
+	<resultMap id="HireMap" class="hireVO" >
+		<result property="hireNo" column="HIRE_NO" />
+		<result property="contentNo" column="CONTENT_NO" />
+		<result property="hireType" column="HIRE_TYPE" />
+		<result property="hireData" column="HIRE_DATA" />
+		<result property="hireSort" column="HIRE_SORT" />		
+	</resultMap>
+
+	
+
+	<select id="hireDAO.selectHireList" parameterClass="hireVO" resultMap="HireMap">
+		SELECT * FROM HIRE_DATA
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="contentNo">
+				CONTENT_NO = #contentNo#
+			</isNotEmpty>
+		</dynamic>	
+	</select>
+	
+	<insert id="hireDAO.insertHireData" parameterClass="hireVO">
+		<![CDATA[
+			INSERT
+				INTO
+					HIRE_DATA (
+						CONTENT_NO,
+						HIRE_TYPE,
+						HIRE_DATA,
+						HIRE_SORT
+						
+					)
+				VALUES (
+					#contentNo#,
+					#hireType#,
+					#hireData#,
+					#hireSort#					
+				)		  
+		]]>
+	</insert>
+	
+	<update id="hireDAO.updateHireData" parameterClass="hireVO">
+		UPDATE HIRE_DATA SET						
+			CONTENT_NO = #contentNo#,						
+			HIRE_TYPE = #hireType#,
+			HIRE_DATA = #hireData#,
+			HIRE_SORT = #hireSort#						
+		WHERE CONTENT_NO = #contentNo#	
+	</update>
+	
+	<delete id="hireDAO.deleteHireData" parameterClass="hireVO">
+		DELETE FROM HIRE_DATA WHERE CONTENT_NO = #contentNo#
+	</delete>
+	
+</sqlMap>

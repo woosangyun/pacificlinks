@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="BoardNtt">
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="searchVO" type="egovframework.WASTE.cmmn.service.SearchVO"/>
+	<typeAlias  alias="boardNttVO" type="egovframework.WASTE.ntt.service.BoardNttVO"/>
+	
+	<resultMap id="BoardNttMap" class="boardNttVO" >
+		<result property="contentNo" column="CONTENT_NO" />
+		<result property="boardNo" column="BOARD_NO" />
+		<result property="title" column="TITLE" />
+		<result property="content" column="CONTENT" />
+		<result property="hit" column="HIT" />
+		<result property="writer" column="WRITER" />
+		<result property="linkUrl1" column="LINK_URL1" />
+		<result property="linkUrl2" column="LINK_URL2" />
+		<result property="linkUrl3" column="LINK_URL3" />
+		<result property="linkUrl4" column="LINK_URL4" />
+		<result property="linkUrl5" column="LINK_URL5" />
+		<result property="sdate" column="SDATE" />
+		<result property="edate" column="EDATE" />
+		<result property="frstRegisterPnttm" column="FRST_REGISTER_PNTTM" />
+		<result property="lastUpdusrPnttm" column="LAST_UPDUSR_PNTTM" />
+		<result property="deleteAt" column="DELETE_AT" />
+		<result property="field1" column="FIELD1" />
+		<result property="field2" column="FIELD2" />
+		<result property="field3" column="FIELD3" />
+		<result property="field4" column="FIELD4" />
+		<result property="field5" column="FIELD5" />
+		<result property="field6" column="FIELD6" />
+		<result property="field7" column="FIELD7" />
+		<result property="field8" column="FIELD8" />
+		<result property="field9" column="FIELD9" />		
+	</resultMap>
+	
+	<resultMap id="BoardNttListMap" class="boardNttVO" >
+		<result property="contentNo" column="CONTENT_NO" />
+		<result property="boardNo" column="BOARD_NO" />
+		<result property="title" column="TITLE" />
+		<result property="content" column="CONTENT" />
+		<result property="hit" column="HIT" />
+		<result property="writer" column="WRITER" />
+		<result property="linkUrl1" column="LINK_URL1" />
+		<result property="linkUrl2" column="LINK_URL2" />
+		<result property="linkUrl3" column="LINK_URL3" />
+		<result property="linkUrl4" column="LINK_URL4" />
+		<result property="linkUrl5" column="LINK_URL5" />
+		<result property="sdate" column="SDATE" />
+		<result property="edate" column="EDATE" />
+		<result property="frstRegisterPnttm" column="FRST_REGISTER_PNTTM" />
+		<result property="lastUpdusrPnttm" column="LAST_UPDUSR_PNTTM" />
+		<result property="deleteAt" column="DELETE_AT" />
+		<result property="field1" column="FIELD1" />
+		<result property="field2" column="FIELD2" />
+		<result property="field3" column="FIELD3" />
+		<result property="field4" column="FIELD4" />
+		<result property="field5" column="FIELD5" />
+		<result property="field6" column="FIELD6" />
+		<result property="field7" column="FIELD7" />
+		<result property="field8" column="FIELD8" />
+		<result property="field9" column="FIELD9" />
+		<result property="storePath" column="STORE_PATH"/>
+    	<result property="fileNm" column="FILE_NM"/>
+    	<result property="fileExtsn" column="FILE_EXTSN"/>
+    	<result property="fileCnt" column="FILE_CNT"/>
+    	<result property="storeFileNm" column="STORE_FILE_NM"/>
+    	<result property="bdtInsrtAt" column="BDT_INSRT_AT"/>
+	</resultMap>
+	
+	<select id="boardNttDAO.selectboardNttList" parameterClass="boardNttVO" resultMap="BoardNttListMap">
+		SELECT NTT.*, NATC.ATCHMNFL_CNT, NATC.ATCHMNFL_NO, ATC.STORE_PATH, ATC.FILE_NM, ATC.FILE_EXTSN, ATC.STORE_FILE_NM, ATC.BDT_INSRT_AT
+			, (SELECT COUNT(1) FROM TN_BBS_ATCHMNFL_IMG WHERE NATC.CONTENT_NO = CONTENT_NO AND IF(FILE_TYPE IS NULL,0,1) = 0) AS FILE_CNT 
+		FROM (
+            SELECT BN.CONTENT_NO, COUNT(BA.FILE_NM) AS ATCHMNFL_CNT, MIN(BA.ATCHMNFL_NO) ATCHMNFL_NO FROM TN_BBS_NTT BN
+            LEFT JOIN TN_BBS_ATCHMNFL BA ON BN.CONTENT_NO = BA.CONTENT_NO
+            WHERE BN.BOARD_NO = #boardNo# AND BN.DELETE_AT = 'N'
+            <isNotEmpty prepend="AND" property="field1">
+             	BN.FIELD1 = #field1#
+        	</isNotEmpty>
+            <isNotEmpty prepend="AND" property="field2">
+             	BN.FIELD2 = #field2#
+        	</isNotEmpty>
+        
+            GROUP BY BN.CONTENT_NO
+	        ) NATC
+	        LEFT JOIN TN_BBS_ATCHMNFL ATC ON NATC.ATCHMNFL_NO = ATC.ATCHMNFL_NO
+	        LEFT JOIN TN_BBS_NTT NTT ON NATC.CONTENT_NO = NTT.CONTENT_NO
+	        <dynamic prepend="WHERE">
+			<isEqual prepend="AND" property="searchCondition" compareValue="title">
+                NTT.TITLE LIKE '%$searchKeyword$%'
+            </isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="content">
+                NTT.CONTENT LIKE '%$searchKeyword$%'
+            </isEqual>
+            <isEqual prepend="AND" property="searchCondition" compareValue="writer">
+             	NTT.WRITER LIKE '%$searchKeyword$%'
+        	</isEqual>
+            <isEqual prepend="AND" property="searchCondition" compareValue="field1">
+             	NTT.FIELD1 LIKE '%$searchKeyword$%'
+        	</isEqual>
+            <isEqual prepend="AND" property="searchCondition" compareValue="field2">
+             	NTT.FIELD2 LIKE '%$searchKeyword$%'
+        	</isEqual>
+            <isEqual prepend="AND" property="searchCondition" compareValue="field3">
+             	NTT.FIELD3 LIKE '%$searchKeyword$%'
+        	</isEqual>
+            <isEqual prepend="AND" property="searchCondition" compareValue="field4">
+             	NTT.FIELD4 LIKE '%$searchKeyword$%'
+        	</isEqual>
+            <isEqual prepend="AND" property="searchCondition" compareValue="field5">
+             	NTT.FIELD5 LIKE '%$searchKeyword$%'
+        	</isEqual>
+        	</dynamic>
+		ORDER BY NTT.FRST_REGISTER_PNTTM DESC
+		LIMIT #firstIndex#, #recordCountPerPage#		
+	</select>
+	
+	<select id="boardNttDAO.selectboardNttListTotCnt" parameterClass="boardNttVO" resultClass="int">
+		SELECT 
+			COUNT(*) TOTCNT
+		FROM TN_BBS_NTT WHERE BOARD_NO = #boardNo# AND DELETE_AT = 'N'
+		<isEqual prepend="AND" property="searchCondition" compareValue="title">
+             TITLE LIKE '%$searchKeyword$%'
+        </isEqual>
+		<isEqual prepend="AND" property="searchCondition" compareValue="content">
+             CONTENT LIKE '%$searchKeyword$%'
+        </isEqual>
+		<isEqual prepend="AND" property="searchCondition" compareValue="writer">
+             WRITER LIKE '%$searchKeyword$%'
+        </isEqual>
+        <isEqual prepend="AND" property="searchCondition" compareValue="field1">
+            FIELD1 LIKE '%$searchKeyword$%'
+       	</isEqual>
+        <isEqual prepend="AND" property="searchCondition" compareValue="field2">
+            FIELD2 LIKE '%$searchKeyword$%'
+       	</isEqual>
+        <isEqual prepend="AND" property="searchCondition" compareValue="field3">
+            FIELD3 LIKE '%$searchKeyword$%'
+       	</isEqual>
+        <isEqual prepend="AND" property="searchCondition" compareValue="field4">
+            FIELD4 LIKE '%$searchKeyword$%'
+       	</isEqual>
+        <isEqual prepend="AND" property="searchCondition" compareValue="field5">
+           	FIELD5 LIKE '%$searchKeyword$%'
+       	</isEqual>
+        <isNotEmpty prepend="AND" property="field1">
+            FIELD1 = #field1#
+       	</isNotEmpty>
+           <isNotEmpty prepend="AND" property="field2">
+            FIELD2 = #field2#
+       	</isNotEmpty>
+			
+	</select>
+	
+	<insert id="boardNttDAO.insertBoardNtt" parameterClass="boardNttVO">
+		<![CDATA[
+			INSERT
+				INTO
+					TN_BBS_NTT (
+						CONTENT_NO,
+						BOARD_NO,
+						TITLE,
+						HIT,
+						CONTENT,
+						WRITER,
+						LINK_URL1,
+						LINK_URL2,
+						LINK_URL3,
+						LINK_URL4,
+						LINK_URL5,
+						SDATE,
+						EDATE,
+						FIELD1,
+						FIELD2,
+						FIELD3,
+						FIELD4,
+						FIELD5,
+						FIELD6,
+						FIELD7,
+						FIELD8,
+						FIELD9,
+						FRST_REGISTER_PNTTM,
+						LAST_UPDUSR_PNTTM,
+						DELETE_AT
+						
+					)
+				VALUES (
+					#contentNo#,
+					#boardNo#,
+					#title#,
+					#hit#,
+					#content#,
+					#writer#,
+					#linkUrl1#,
+					#linkUrl2#,
+					#linkUrl3#,
+					#linkUrl4#,
+					#linkUrl5#,
+					#sdate#,
+					#edate#,
+					#field1#,
+					#field2#,
+					#field3#,
+					#field4#,
+					#field5#,
+					#field6#,
+					#field7#,
+					#field8#,
+					#field9#,
+					#frstRegisterPnttm#,
+					#lastUpdusrPnttm#,
+					#deleteAt#
+				)		  
+		]]>
+	</insert>
+	
+	<select id="boardNttDAO.selectBoardNttNoNextVal" resultClass="Integer">
+		SELECT CASE COUNT(*) WHEN 0 THEN 1 ELSE MAX(CONTENT_NO) + 1 END FROM TN_BBS_NTT
+	</select>
+	
+	<select id="boardNttDAO.selectBoardNttData" parameterClass="boardNttVO" resultMap="BoardNttMap">
+		SELECT * FROM TN_BBS_NTT WHERE CONTENT_NO = #contentNo#
+	</select>
+	
+	<update id="boardNttDAO.updateBoardNtt" parameterClass="boardNttVO">
+		UPDATE TN_BBS_NTT SET			
+			TITLE = #title#,
+			CONTENT = #content#,			
+			LINK_URL1 = #linkUrl1#,			
+			LINK_URL2 = #linkUrl2#,			
+			LINK_URL3 = #linkUrl3#,			
+			LINK_URL4 = #linkUrl4#,			
+			LINK_URL5 = #linkUrl5#,			
+			SDATE = #sdate#,			
+			EDATE = #edate#,			
+			FIELD1 = #field1#,			
+			FIELD2 = #field2#,			
+			FIELD3 = #field3#,			
+			FIELD4 = #field4#,			
+			FIELD5 = #field5#,
+			FIELD6 = #field6#,
+			FIELD7 = #field7#,
+			FIELD8 = #field8#,
+			FIELD9 = #field9#,	
+			<isNotEmpty property="frstRegisterPnttm">
+			FRST_REGISTER_PNTTM = #frstRegisterPnttm#, 	
+			</isNotEmpty>
+			LAST_UPDUSR_PNTTM = #lastUpdusrPnttm#
+		WHERE CONTENT_NO = #contentNo#	
+	</update>
+	
+	<update id="boardNttDAO.deleteBoardNtt" parameterClass="boardNttVO">
+		UPDATE TN_BBS_NTT SET			
+			DELETE_AT = #deleteAt#		
+		WHERE CONTENT_NO = #contentNo#	
+	</update>
+
+</sqlMap>

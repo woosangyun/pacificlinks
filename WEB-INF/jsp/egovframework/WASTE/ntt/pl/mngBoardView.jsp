@@ -17,12 +17,13 @@
 
 <!-- jQuery -->
 <script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery-ui.min.js"></script> -->
 <script src="/SE2/js/HuskyEZCreator.js"></script>
 <script type="text/javascript">
 var oEditors = []; // 개발되어 있는 소스에 맞추느라, 전역변수로 사용하였지만, 지역변수로 사용해도 전혀 무관 함.
 
 $(document).ready(function() {
+	<c:if test="${boardNo ne 'promPd' and boardNo ne 'theme'}">
 	// Editor Setting
 	nhn.husky.EZCreator.createInIFrame({
 		oAppRef : oEditors, // 전역변수 명과 동일해야 함.
@@ -38,9 +39,11 @@ $(document).ready(function() {
 			bUseModeChanger : true, 
 		}
 	});
+	</c:if>
 
 	// 전송버튼 클릭이벤트
 	$("#updateBtn").click(function(){
+		<c:if test="${boardNo ne 'promPd' and boardNo ne 'theme'}">
 		//if(confirm("저장하시겠습니까?")) {
 			// id가 smarteditor인 textarea에 에디터에서 대입
 			oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
@@ -50,6 +53,7 @@ $(document).ready(function() {
 				$("#bbsNttUpdateForm").submit();
 			}
 		//}
+		</c:if>
 	})
 });
 
@@ -86,12 +90,15 @@ function validation(){
 			$("#title").focus();
 			return false;
 		}	
+		
+		<c:if test="${boardNo ne 'promPd' and boardNo ne 'theme'}">
 		var contents = $.trim(oEditors[0].getContents());
 		if(contents === '<p>&nbsp;</p>' || contents === ''){ // 기본적으로 아무것도 입력하지 않아도 <p>&nbsp;</p> 값이 입력되어 있음. 
 			alert("내용을 입력하세요.");
 			oEditors.getById['content'].exec('FOCUS');
 			return false;
-		}	
+		}
+		</c:if>
  		
 		$('#updateBtn').attr('disabled', true);
 		return true;
@@ -122,6 +129,9 @@ function validation(){
 </c:if>
 <c:if test="${boardNo eq 'promPd'}">
 	<c:set var="boardKor" value="프로모션 상품"/>
+</c:if>
+<c:if test="${boardNo eq 'theme'}">
+	<c:set var="boardKor" value="테마여행 상품"/>
 </c:if>
 <c:if test="${boardNo eq 'news'}">
 	<c:set var="boardKor" value="뉴스"/>
@@ -195,7 +205,27 @@ function validation(){
 						</div>
 					</div>
 				</div>
-
+				
+				<c:if test="${boardNo eq 'theme'}">
+				<div class="form-group">
+					<label class="col-sm-3 control-label" style="text-align:left"><span style="color:red">*</span> 계절</label>
+					<div class="col-sm-5">
+						<div class="input-group">						
+							<input type="text" class="form-control" data-mask="" placeholder="" id="field3" name="field3" style="width:300px;" value="${boardNttResult.field3}"/>
+						</div>				
+					</div>						
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label" style="text-align:left"><span style="color:red">*</span> 서브 텍스트</label>
+					<div class="col-sm-5">
+						<div class="input-group">						
+							<input type="text" class="form-control" data-mask="" placeholder="" id="field4" name="field4" style="width:1000px;" value="${boardNttResult.field4}"/>
+						</div>				
+					</div>						
+				</div>
+				</c:if>
+				
+				<c:if test="${boardNo ne 'promPd' and boardNo ne 'theme'}">
 				<div class="form-group">
 					<label class="col-sm-3 control-label" style="text-align:left"><span style="color:red">*</span> 내용</label>
 					<div class="col-sm-5">
@@ -206,14 +236,143 @@ function validation(){
 						</div>
 					</div>
 				</div>
+				</c:if>
 </c:otherwise>
 </c:choose>
+
+<c:if test="${boardNo eq 'promPd' or boardNo eq 'theme'}"><!-- 프로모션 상품 게시판 기능추가 -->
+				<div class="form-group">
+					<label class="col-sm-3 control-label" style="text-align:left"> 상단 이미지</label>
+					<div class="col-sm-5">
+						<c:set var="fileCnt" value="0" />
+						<c:forEach var="boardAtchmnflImg" items="${boardAtchmnflImgList}" varStatus="idx">		
+							<c:if test="${empty boardAtchmnflImg.fileType}">
+							<div class="input-group">
+								<input type="radio" name="fileProcTyImg${idx.index}" id="fileProcTyImg_${idx.index}_U" value="U" checked="checked"/><label for="fileProcTyImg_${idx.index}_U">유지</label>
+								<input type="radio" name="fileProcTyImg${idx.index}" id="fileProcTyImg_${idx.index}_D" value="${boardAtchmnflImg.atchmnflNo}"/><label for="fileProcTyImg_${idx.index}_D">삭제</label>
+								<a href="/downloadBbsFile.do?atchmnflNo=${boardAtchmnflImg.atchmnflNo}"><img src="/images/board/file/ico_${boardAtchmnflImg.fileExtsn}.gif"/> ${boardAtchmnflImg.fileNm}</a><br/>
+							</div>
+							<c:set var="fileCnt" value="${fileCnt + 1}" />
+							</c:if>
+						</c:forEach>
+						<c:forEach var="i" begin="${fileCnt+1}" end="1" step="1" varStatus="idx">
+						<div class="input-group">						
+							<input type="file" name="atchmnfl_img" class="promPd" size="60"/>
+						</div>
+						</c:forEach>
+					</div>					
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label" style="text-align:left"> Tab1</label>
+					<div class="col-sm-5">
+						<div class="input-group">						
+							<input type="text" class="form-control" id="field6" name="field6" value="${boardNttResult.field6}" style="width:300px;"/>
+						</div>	
+						<br>
+						<br> 
+						<c:set var="fileCnt" value="0" />
+						<c:forEach var="boardAtchmnflImg" items="${boardAtchmnflImgList}" varStatus="idx">		
+							<c:if test="${boardAtchmnflImg.fileType eq 'tab1'}">
+							<div class="input-group">
+								<input type="radio" name="fileProcTyImg${idx.index}" id="fileProcTyImg_${idx.index}_U" value="U" checked="checked"/><label for="fileProcTyImg_${idx.index}_U">유지</label>
+								<input type="radio" name="fileProcTyImg${idx.index}" id="fileProcTyImg_${idx.index}_D" value="${boardAtchmnflImg.atchmnflNo}"/><label for="fileProcTyImg_${idx.index}_D">삭제</label>
+								<a href="/downloadBbsFile.do?atchmnflNo=${boardAtchmnflImg.atchmnflNo}"><img src="/images/board/file/ico_${boardAtchmnflImg.fileExtsn}.gif"/> ${boardAtchmnflImg.fileNm}</a><br/>
+							</div>
+							<c:set var="fileCnt" value="${fileCnt + 1}" />
+							</c:if>
+						</c:forEach>
+						<c:forEach var="i" begin="${fileCnt+1}" end="3" step="1" varStatus="idx">
+						<div class="input-group">						
+							<input type="file" name="atchmnfl_tab1" class="promPd" size="60"/>
+						</div>
+						</c:forEach>
+					</div>					
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label" style="text-align:left"> Tab2</label>
+					<div class="col-sm-5">
+						<div class="input-group">						
+							<input type="text" class="form-control" id="field7" name="field7" value="${boardNttResult.field7}" style="width:300px;"/>
+						</div>	
+						<br>
+						<br> 
+						<c:set var="fileCnt" value="0" />
+						<c:forEach var="boardAtchmnflImg" items="${boardAtchmnflImgList}" varStatus="idx">		
+							<c:if test="${boardAtchmnflImg.fileType eq 'tab2'}">
+							<div class="input-group">
+								<input type="radio" name="fileProcTyImg${idx.index}" id="fileProcTyImg_${idx.index}_U" value="U" checked="checked"/><label for="fileProcTyImg_${idx.index}_U">유지</label>
+								<input type="radio" name="fileProcTyImg${idx.index}" id="fileProcTyImg_${idx.index}_D" value="${boardAtchmnflImg.atchmnflNo}"/><label for="fileProcTyImg_${idx.index}_D">삭제</label>
+								<a href="/downloadBbsFile.do?atchmnflNo=${boardAtchmnflImg.atchmnflNo}"><img src="/images/board/file/ico_${boardAtchmnflImg.fileExtsn}.gif"/> ${boardAtchmnflImg.fileNm}</a><br/>
+							</div>
+							<c:set var="fileCnt" value="${fileCnt + 1}" />
+							</c:if>
+						</c:forEach>
+						<c:forEach var="i" begin="${fileCnt+1}" end="3" step="1" varStatus="idx">
+						<div class="input-group">						
+							<input type="file" name="atchmnfl_tab2" class="promPd" size="60"/>
+						</div>
+						</c:forEach>
+					</div>					
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label" style="text-align:left"> Tab3</label>
+					<div class="col-sm-5">
+						<div class="input-group">						
+							<input type="text" class="form-control" id="field8" name="field8" value="${boardNttResult.field8}" style="width:300px;"/>
+						</div>	
+						<br>
+						<br> 
+						<c:set var="fileCnt" value="0" />
+						<c:forEach var="boardAtchmnflImg" items="${boardAtchmnflImgList}" varStatus="idx">		
+							<c:if test="${boardAtchmnflImg.fileType eq 'tab3'}">
+							<div class="input-group">
+								<input type="radio" name="fileProcTyImg${idx.index}" id="fileProcTyImg_${idx.index}_U" value="U" checked="checked"/><label for="fileProcTyImg_${idx.index}_U">유지</label>
+								<input type="radio" name="fileProcTyImg${idx.index}" id="fileProcTyImg_${idx.index}_D" value="${boardAtchmnflImg.atchmnflNo}"/><label for="fileProcTyImg_${idx.index}_D">삭제</label>
+								<a href="/downloadBbsFile.do?atchmnflNo=${boardAtchmnflImg.atchmnflNo}"><img src="/images/board/file/ico_${boardAtchmnflImg.fileExtsn}.gif"/> ${boardAtchmnflImg.fileNm}</a><br/>
+							</div>
+							<c:set var="fileCnt" value="${fileCnt + 1}" />
+							</c:if>
+						</c:forEach>
+						<c:forEach var="i" begin="${fileCnt+1}" end="3" step="1" varStatus="idx">
+						<div class="input-group">						
+							<input type="file" name="atchmnfl_tab3" class="promPd" size="60"/>
+						</div>
+						</c:forEach>
+					</div>					
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label" style="text-align:left"> Tab4</label>
+					<div class="col-sm-5">
+						<div class="input-group">						
+							<input type="text" class="form-control" id="field9" name="field9" value="${boardNttResult.field9}" style="width:300px;"/>
+						</div>	
+						<br>
+						<br> 
+						<c:set var="fileCnt" value="0" />
+						<c:forEach var="boardAtchmnflImg" items="${boardAtchmnflImgList}" varStatus="idx">		
+							<c:if test="${boardAtchmnflImg.fileType eq 'tab4'}">
+							<div class="input-group">
+								<input type="radio" name="fileProcTyImg${idx.index}" id="fileProcTyImg_${idx.index}_U" value="U" checked="checked"/><label for="fileProcTyImg_${idx.index}_U">유지</label>
+								<input type="radio" name="fileProcTyImg${idx.index}" id="fileProcTyImg_${idx.index}_D" value="${boardAtchmnflImg.atchmnflNo}"/><label for="fileProcTyImg_${idx.index}_D">삭제</label>
+								<a href="/downloadBbsFile.do?atchmnflNo=${boardAtchmnflImg.atchmnflNo}"><img src="/images/board/file/ico_${boardAtchmnflImg.fileExtsn}.gif"/> ${boardAtchmnflImg.fileNm}</a><br/>
+							</div>
+							<c:set var="fileCnt" value="${fileCnt + 1}" />
+							</c:if>
+						</c:forEach>
+						<c:forEach var="i" begin="${fileCnt+1}" end="3" step="1" varStatus="idx">
+						<div class="input-group">						
+							<input type="file" name="atchmnfl_tab4" class="promPd" size="60"/>
+						</div>
+						</c:forEach>
+					</div>					
+				</div>
+</c:if>
 
 <table id="ds_conclass" style="display: none; background-color: #FFF; border: 1px solid #CCCCCC; position: absolute; z-index: 32767;" border="1"><tr><td id="ds_calclass"></td></tr></table>
 <script type="text/javascript" src="/js/calendar.js"></script>
 
 <c:choose>								
-	<c:when test="${boardNo eq 'prom' || boardNo eq 'promPd'}">
+	<c:when test="${boardNo eq 'prom' || boardNo eq 'promPd' || boardNo eq 'theme'}">
 				
 				<div class="form-group">
 					<label class="col-sm-3 control-label" style="text-align:left"><span style="color:red">*</span> 지역</label>
@@ -243,7 +402,7 @@ function validation(){
 					</div>						
 				</div>
 				
-				<c:if test="${boardNo eq 'promPd'}">
+				<c:if test="${boardNo eq 'promPd' or boardNo eq 'theme'}">
 				<div class="form-group">
 					<label class="col-sm-3 control-label" style="text-align:left"><span style="color:red">*</span> 인원</label>
 					<div class="col-sm-5">
@@ -296,6 +455,7 @@ function validation(){
 						</div>
 					</div>
 
+					<c:if test="${boardNo ne 'promPd' and boardNo ne 'theme'}">
 					<div class="form-group">
 						<label class="col-sm-3 control-label" style="text-align:left"> 이미지 첨부파일</label>
 						<div class="col-sm-5">
@@ -317,6 +477,7 @@ function validation(){
 							</c:forEach>
 						</div>
 					</div>
+					</c:if>
 	</c:when>	
 	<c:otherwise>
 	

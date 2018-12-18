@@ -166,7 +166,7 @@
 	</div>
 	
 	<!--   CONTENTS   -->
-	<section id="contents" class="container">
+	<section id="contents" class="container" tabindex="-1">
 		
 		<h3>상담/문의</h3>
 		

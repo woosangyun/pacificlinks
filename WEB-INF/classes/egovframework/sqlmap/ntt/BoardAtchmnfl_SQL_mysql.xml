@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="boardAtchmnfl">
+
+	<typeAlias alias="boardAtchmnfl" type="egovframework.WASTE.ntt.service.BoardAtchmnfl" />
+
+    <resultMap id="boardAtchmnflMap" class="egovframework.WASTE.ntt.service.BoardAtchmnflVO">
+    	<result property="atchmnflNo" column="ATCHMNFL_NO"/>
+    	<result property="boardNo" column="BOARD_NO"/>
+    	<result property="contentNo" column="CONTENT_NO"/>
+    	<result property="storePath" column="STORE_PATH"/>
+    	<result property="fileNm" column="FILE_NM"/>
+    	<result property="fileExtsn" column="FILE_EXTSN"/>
+    	<result property="storeFileNm" column="STORE_FILE_NM"/>
+    	<result property="bdtInsrtAt" column="BDT_INSRT_AT"/>
+    	<result property="replcText" column="REPLC_TEXT"/>
+    	<result property="fileType" column="FILE_TYPE"/>
+    	<result property="frstRegisterPnttm" column="FRST_REGISTER_PNTTM"/>
+    	<result property="lastUpdusrPnttm" column="LAST_UPDUSR_PNTTM"/>    		
+    </resultMap>
+
+	<insert id="boardAtchmnflDAO.insertBoardAtchmnfl" parameterClass="boardAtchmnfl">
+		INSERT INTO TN_BBS_ATCHMNFL
+		(
+			BOARD_NO, CONTENT_NO, STORE_PATH, FILE_NM, FILE_EXTSN, STORE_FILE_NM, BDT_INSRT_AT, REPLC_TEXT, FRST_REGISTER_PNTTM
+		) VALUES (
+			#boardNo#, #contentNo#, #storePath#, #fileNm#, #fileExtsn#, #storeFileNm#, #bdtInsrtAt#, #replcText#, #frstRegisterPnttm#
+		)
+	</insert>
+	
+	<select id="boardAtchmnflDAO.selectBoardAtchmnflList" parameterClass="boardAtchmnfl" resultMap="boardAtchmnflMap">
+		SELECT * FROM TN_BBS_ATCHMNFL WHERE CONTENT_NO = #contentNo# ORDER BY ATCHMNFL_NO ASC
+	</select>
+	
+	<delete id="boardAtchmnflDAO.deleteBoardAtchmnfl" parameterClass="boardAtchmnfl">
+		DELETE FROM TN_BBS_ATCHMNFL WHERE ATCHMNFL_NO = #atchmnflNo#
+	</delete>
+	
+	<update id="boardAtchmnflDAO.updateBoardAtchmnflBdtInsrtAtAllN" parameterClass="boardAtchmnfl">
+		UPDATE TN_BBS_ATCHMNFL SET BDT_INSRT_AT = 'N' WHERE CONTENT_NO = #contentNo#
+	</update>
+	
+	<update id="boardAtchmnflDAO.updateBoardAtchmnflBdtInsrtAtY" parameterClass="boardAtchmnfl">
+		UPDATE TN_BBS_ATCHMNFL SET BDT_INSRT_AT = 'Y' WHERE ATCHMNFL_NO = #atchmnflNo#
+	</update>
+	
+	<select id="boardAtchmnflDAO.selectBoardAtchmnfl" parameterClass="boardAtchmnfl" resultMap="boardAtchmnflMap">
+		SELECT * FROM TN_BBS_ATCHMNFL WHERE ATCHMNFL_NO = #atchmnflNo#
+	</select>
+	
+<!-- ********************************************************************************************************************** -->
+
+	<insert id="boardAtchmnflDAO.insertBoardAtchmnflImg" parameterClass="boardAtchmnfl">
+		INSERT INTO TN_BBS_ATCHMNFL_IMG
+		(
+			BOARD_NO, CONTENT_NO, STORE_PATH, FILE_NM, FILE_EXTSN, STORE_FILE_NM, BDT_INSRT_AT, REPLC_TEXT, FILE_TYPE, FRST_REGISTER_PNTTM
+		) VALUES (
+			#boardNo#, #contentNo#, #storePath#, #fileNm#, #fileExtsn#, #storeFileNm#, #bdtInsrtAt#, #replcText#, #fileType#, #frstRegisterPnttm#
+		)
+	</insert>
+	
+	<select id="boardAtchmnflDAO.selectBoardAtchmnflImgList" parameterClass="boardAtchmnfl" resultMap="boardAtchmnflMap">
+		SELECT * FROM TN_BBS_ATCHMNFL_IMG WHERE CONTENT_NO = #contentNo# ORDER BY ATCHMNFL_NO ASC
+	</select>
+	
+	<delete id="boardAtchmnflDAO.deleteBoardAtchmnflImg" parameterClass="boardAtchmnfl">
+		DELETE FROM TN_BBS_ATCHMNFL_IMG WHERE ATCHMNFL_NO = #atchmnflNo#
+	</delete>
+	
+	<update id="boardAtchmnflDAO.updateBoardAtchmnflImgBdtInsrtAtAllN" parameterClass="boardAtchmnfl">
+		UPDATE TN_BBS_ATCHMNFL_IMG SET BDT_INSRT_AT = 'N' WHERE CONTENT_NO = #contentNo#
+	</update>
+	
+	<update id="boardAtchmnflDAO.updateBoardAtchmnflImgBdtInsrtAtY" parameterClass="boardAtchmnfl">
+		UPDATE TN_BBS_ATCHMNFL_IMG SET BDT_INSRT_AT = 'Y' WHERE ATCHMNFL_NO = #atchmnflNo#
+	</update>
+	
+	<select id="boardAtchmnflDAO.selectBoardAtchmnflImg" parameterClass="boardAtchmnfl" resultMap="boardAtchmnflMap">
+		SELECT * FROM TN_BBS_ATCHMNFL_IMG WHERE ATCHMNFL_NO = #atchmnflNo#
+	</select>
+	
+</sqlMap>

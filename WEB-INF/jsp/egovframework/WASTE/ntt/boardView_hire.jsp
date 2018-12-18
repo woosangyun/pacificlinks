@@ -26,9 +26,6 @@
 	var m3 = null;
 	
 </script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126622113-1"></script>
-<script type="text/javascript" src="../_js/googleAnalytics.js"></script>
 
 <script type="text/javascript" src="../_js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="../_js/jquery.easing.1.3.js"></script>
@@ -67,7 +64,7 @@
 	</div>
 	
 	<!--   CONTENTS   -->
-	<section id="contents" class="container">
+	<section id="contents" class="container" tabindex="-1">
 		
 		<h3>인재채용</h3>
 		
@@ -78,8 +75,14 @@
 				<fmt:formatDate value="${dateFmt}" pattern="yyyy-MM-dd" var="frstPnttm"/>
 				<p class="date">${frstPnttm}</p>
 			</div>			
-
-						<c:forEach var="hireVOList" items="${hireVOList}" varStatus="status">
+			<div class="board-view-con">
+				<div class="custom">
+                    <p class="title">모집부문</p>
+                    <table>
+                        <colgroup>
+                            <col width="20%"><col width="*">
+                        </colgroup>
+                        <c:forEach var="hireVOList" items="${hireVOList}" varStatus="status">
                         	<c:set var="a1Chk" value="N"/>
                         	<c:set var="a2Chk" value="N"/>
                         	<c:set var="a3Chk" value="N"/>
@@ -114,16 +117,6 @@
                         		<c:set var="b3Chk" value="Y"/>
                         	</c:if>
                         </c:forEach>
-			
-			<div class="board-view-con">
-			<c:if test="${a1Chk eq 'Y' || a2Chk eq 'Y' || a3Chk eq 'Y' || a4Chk eq 'Y' || a5Chk eq 'Y'}">
-				<div class="custom">
-                    <p class="title">모집부문</p>
-                    <table>
-                        <colgroup>
-                            <col width="20%"><col width="*">
-                        </colgroup>
-                        
                         <tbody>
                         <c:if test="${a1Chk eq 'Y'}">
                             <tr>                            
@@ -195,8 +188,6 @@
                     </table>
                     <p class="ju">공통 자격요건 : 해외여행에 결격 사유가 없는 지원자, 남자는 병역필 또는 면제인 지원자</p>
                 </div>
-				</c:if>
-				<c:if test="${b1Chk eq 'Y' || b2Chk eq 'Y' || b3Chk eq 'Y'}">
                 <div class="custom">
                     <p class="title">지원절차</p>
                     <table>
@@ -249,16 +240,15 @@
                         </tbody>
                     </table>
                 </div>
-				</c:if>
-				<img src="../_images/_board/recruit2.jpg" width="100%" alt="">
-				<a href="../_images/_board/recruit2.jpg" class="mobile-zoom" target="_blank">이미지 확대보기</a>
-                <div class="location">
+				<div class="location">
 					<p>찾아오시는 길</p>
 					<div class="wrap">
 						<a href="https://map.naver.com/?searchCoord=43ba79ba497c428f3ea930e719ea53b1b9cab5c6232cec9ec13d48aa96dee541&query=7Jet7IK866GcIDIzNQ%3D%3D&menu=location&tab=1&lng=7564efc11353e5a3d39edca5e366b3c1&mapMode=0&mpx=d59c456c9bd02abebcdc0f5ec8d08927acbf4b3f4296e0f0016da5fe26cba2c407c43ca688c3ed19e28d1c4c5593ad947b0c6a86e5f2a26bb98aef18b3d304b1&lat=49f7121596464cfb27ee78bb0655a9e8&dlevel=12&enc=b64" target="_blank" class="korea">퍼시픽링스 코리아 본사</a>
 						<a href="https://map.naver.com/?searchCoord=e39f7e639a8789f769b03155749a39f55a65f63fb0ea9471a46fc3a4d7c335ba&query=7Y287Iuc7ZS966eB7Iqk&tab=1&lng=1e612fe66443ce1b1029a5d6879c7b39&mapMode=0&mpx=d59c456c9bd02abebcdc0f5ec8d089276859c88d387eab66b527ee1846ac8d6747ea260005b20bdcd327e03f04d3042471437174ff018df58b36aabb525c7d98&lat=c85733b7b324c5e7e8db1515bee0514c&dlevel=12&enc=b64&menu=location" target="_blank" class="chung">퍼시픽링스 코리아 청담라운지</a>
 					</div>
 				</div>
+				<img src="../_images/_board/recruit2.jpg" width="100%" alt="">
+				<a href="../_images/_board/recruit2.jpg" class="mobile-zoom" target="_blank">이미지 확대보기</a>
 			</div>
 			
 			

@@ -68,7 +68,7 @@
 	</div>
 	
 	<!--   CONTENTS   -->
-	<section id="contents" class="container">
+	<section id="contents" class="container" tabindex="-1">
 		
 		<h3>테마골프</h3>
 		

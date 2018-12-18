@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/jdbc  http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+	
+    <!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:gborcl"/>
+        <property name="username" value="WASTE"/>
+        <property name="password" value="waste"/>
+    </bean> -->
+    
+    <bean id="egov.propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:/egovframework/props/globals.properties</value>
+            </list>
+        </property>
+    </bean>
+
+	<!-- DataSource -->
+    <alias name="dataSource-${Globals.dbConnType}" alias="dataSource"/>
+
+	<!-- WAS의 JNDI 사용 
+	<bean id="dataSource-jndi" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="${Globals.jndiName}"/>
+        <property name="resourceRef" value="${Globals.jndiName.resourceRef}"/>
+    </bean>
+	-->
+
+	<!-- mysql -->
+	<bean id="dataSource-mysql" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${Globals.DriverClassName.mysql}"/>
+		<property name="url" value="${Globals.Url.mysql}?autoReconnection=true" />
+		<property name="username" value="${Globals.UserName}"/>
+		<property name="password" value="${Globals.Password}"/>
+
+		<!-- 특정 시간마다 validationQuery를 실행 셋팅 시작 -->
+        <property name="validationQuery" value="select 1"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="timeBetweenEvictionRunsMillis" value="7200000"/>
+        <!-- 특정 시간마다 validationQuery를 실행 셋팅 끝 -->
+	</bean>
+    
+</beans>

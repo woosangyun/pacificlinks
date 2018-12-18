@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+  <tiles-definitions>
+    <!-- Default Main Template -->
+    <definition name="layouts-tiles" template="/WEB-INF/jsp/egovframework/templates/layout.jsp">
+    	<put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/jsp/egovframework/templates/header.jsp" />
+        <put-attribute name="left" value="/WEB-INF/jsp/egovframework/templates/left.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer" value="/WEB-INF/jsp/egovframework/templates/footer.jsp" />
+    </definition>
+    
+    <definition name="/mng/*" extends="layouts-tiles">
+        <put-attribute name="content" value="/WEB-INF/jsp/egovframework/WASTE/mng/{1}.jsp" />
+    </definition>
+    
+    <definition name="/wst/*" extends="layouts-tiles">
+        <put-attribute name="content" value="/WEB-INF/jsp/egovframework/WASTE/wst/{1}.jsp" />
+    </definition>
+    
+    <definition name="/ntt/pl/*" extends="layouts-tiles">
+        <put-attribute name="content" value="/WEB-INF/jsp/egovframework/WASTE/ntt/pl/{1}.jsp" />
+    </definition>
+    
+    <definition name="/code/mng/*" extends="layouts-tiles">
+        <put-attribute name="content" value="/WEB-INF/jsp/egovframework/WASTE/code/mng/{1}.jsp" />
+    </definition>
+
+    <definition name="/spc/*" extends="layouts-tiles">
+        <put-attribute name="content" value="/WEB-INF/jsp/egovframework/WASTE/spc/{1}.jsp" />
+    </definition>
+    
+    <definition name="/hjd/*" extends="layouts-tiles">
+        <put-attribute name="content" value="/WEB-INF/jsp/egovframework/WASTE/hjd/{1}.jsp" />
+    </definition>
+    
+    <definition name="/stat/*" extends="layouts-tiles">
+        <put-attribute name="content" value="/WEB-INF/jsp/egovframework/WASTE/stat/{1}.jsp" />
+    </definition>
+    
+    <!-- No Template -->
+    <definition name="no-tiles" template="/WEB-INF/jsp/egovframework/templates/noTemplate.jsp" >
+      <put-attribute name="noTemplate"   value="" />
+	</definition>
+    
+    <definition name="/popup/*.jsp" extends="no-tiles">
+        <put-attribute name="noTemplate" value="/WEB-INF/jsp/egovframework/WASTE/popup/{1}.jsp" />
+    </definition>
+    
+    <definition name="/uat/*.jsp" extends="no-tiles">
+        <put-attribute name="noTemplate" value="/WEB-INF/jsp/egovframework/WASTE/uat/{1}.jsp" />
+    </definition>
+    
+    <definition name="/usr/*.jsp" extends="no-tiles">
+        <put-attribute name="noTemplate" value="/WEB-INF/jsp/egovframework/WASTE/usr/{1}.jsp" />
+    </definition>
+    
+    <definition name="/prt/*.jsp" extends="no-tiles">
+        <put-attribute name="noTemplate" value="/WEB-INF/jsp/egovframework/WASTE/prt/{1}.jsp" />
+    </definition>
+
+	 <definition name="/wst2/*.jsp" extends="no-tiles">
+        <put-attribute name="noTemplate" value="/WEB-INF/jsp/egovframework/WASTE/wst2/{1}.jsp" />
+   </definition>
+
+    <!-- <definition name="*" extends="layouts-tiles">
+        <put-attribute name="content" value="/WEB-INF/jsp/egovframework/templates/{1}.jsp" />
+    </definition>
+    <definition name="*/*" extends="layouts-tiles">
+        <put-attribute name="content" value="/WEB-INF/jsp/egovframework/templates/{1}/{2}.jsp" />
+    </definition>
+    
+    <definition name="/mng/*" extends="layouts-tiles">
+        <put-attribute name="content" value="/WEB-INF/jsp/egovframework/WASTE/mng/{1}.jsp" />
+    </definition>
+    
+    <definition name="/wst/*" extends="layouts-tiles">
+        <put-attribute name="content" value="/WEB-INF/jsp/egovframework/WASTE/wst/{1}.jsp" />
+    </definition> -->
+
+    <!-- board -->
+<!--     <definition name="/board/*/*" extends="layouts-tiles">
+        <put-attribute name="body" value="/WEB-INF/jsp/egovframework/board/{1}/{2}.jsp" />
+    </definition> -->
+
+    <!-- statistics -->
+<!--     <definition name="/statistics/*/*" extends="layouts-tiles">
+        <put-attribute name="body" value="/WEB-INF/jsp/egovframework/statistics/{1}/{2}.jsp" />
+    </definition> -->
+
+    <!-- sample
+    <definition name="*.do" extends="layouts-tiles">
+    <put-attribute name="title" value="Tiles extends" />
+    <put-attribute name="body" value="/WEB-INF/pages/{1}.jsp" />
+  </definition>
+
+  <definition name="*/*" extends="layouts-tiles">
+    <put-attribute name="title" value="Tiles extends2" />
+    <put-attribute name="body" value="/WEB-INF/pages/{1}/{2}.jsp" />
+  </definition>
+
+  <definition name="*/*/*" extends="layouts-tiles">
+    <put-attribute name="title" value="Tiles extends3" />
+    <put-attribute name="body" value="/WEB-INF/pages/{1}/{2}/{3}.jsp" />
+  </definition>
+
+  <definition name="*/*/*/*" extends="layouts-tiles">
+    <put-attribute name="title" value="Tiles extends4" />
+    <put-attribute name="body" value="/WEB-INF/pages/{1}/{2}/{3}/{4}.jsp" />
+  </definition>
+
+  <definition name="*/*/*/*/*" extends="layouts-tiles">
+    <put-attribute name="title" value="Tiles extends5" />
+    <put-attribute name="body" value="/WEB-INF/pages/{1}/{2}/{3}/{4}/{5}.jsp" />
+  </definition>
+    -->
+
+  <!-- no tiles -->
+<!--   <definition name="no-tiles" template="/WEB-INF/jsp/egovframework/templates/noTemplate.jsp">
+      <put-attribute name="noTemplate"   value="" />
+   </definition> -->
+
+   <!-- login -->
+<!--     <definition name="/freesem/homepage/login/*/*" extends="no-tiles">
+        <put-attribute name="body" value="/WEB-INF/jsp/egovframework/WASTE/login/{1}/{2}.jsp" />
+    </definition> -->
+
+    <!--
+  <definition name="*.jsp" extends="no-tiles">
+    <put-attribute name="noTemplate" value="/WEB-INF/views/{1}.jsp" />
+  </definition>
+
+  <definition name="/web/*.jsp" extends="no-tiles">
+    <put-attribute name="noTemplate" value="/WEB-INF/views/web/{1}.jsp" />
+  </definition>
+
+  <definition name="/web/*/*.jsp" extends="no-tiles">
+    <put-attribute name="noTemplate" value="/WEB-INF/views/web/{1}/{2}.jsp" />
+  </definition>
+
+  <definition name="/web/*/*/*.jsp" extends="no-tiles">
+    <put-attribute name="noTemplate" value="/WEB-INF/views/web/{1}/{2}/{3}.jsp" />
+  </definition>
+     -->
+
+</tiles-definitions>
