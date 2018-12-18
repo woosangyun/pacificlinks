@@ -154,6 +154,23 @@ footer{
                 } 
             }
         }
+        .awards{
+            float: right;
+            margin-top: 20px;
+            .text{
+                text-align: right;
+                float: right;
+                font-size: 14px;
+                color: #111;
+                padding-right: 8px;
+                line-height: 20px;
+                padding-top: 10px;
+                font-weight: 300;
+            }
+            .image{
+                float: right;
+            }
+        }
 	}
 }
 

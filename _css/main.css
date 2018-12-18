@@ -188,6 +188,9 @@ footer .container .social .wrap > a.blog { background: url(../_images/common/foo
 footer .container .social .wrap > a.youtube { background: url(../_images/common/footer_youtube.png) no-repeat center/cover; }
 footer .container .pdf { margin-top: 20px; float: right; }
 footer .container .pdf .wrap a { display: block; width: 80%; float: right; line-height: 30px; border: 1px solid #ccc; border-radius: 30px; margin-bottom: 5px; text-align: center; font-size: 14px; }
+footer .container .awards { float: right; margin-top: 20px; }
+footer .container .awards .text { text-align: right; float: right; font-size: 14px; color: #111; padding-right: 8px; line-height: 20px; padding-top: 10px; font-weight: 300; }
+footer .container .awards .image { float: right; }
 
 @media screen and (max-width: 960px) { footer { padding: 25px 0; margin-top: 100px; }
   footer .container .cs { width: 75%; }
@@ -358,3 +361,7 @@ footer .container .pdf .wrap a { display: block; width: 80%; float: right; line-
   .pacific .company .title { font-size: 25px; margin-top: 10px; }
   .pacific .company .text { font-size: 13px; margin-top: 15px; line-height: 18px; }
   .pacific .interview { margin-top: 10px; float: right; position: relative; width: 100%; top: 0; } }
+#layer-popup { position: absolute; top: 150px; left: 50%; margin-left: -585px; z-index: 1; }
+#layer-popup .popup-butt { background: #fff; height: 50px; }
+#layer-popup .popup-butt #check { float: left; margin-left: 20px; margin-top: 13px; }
+#layer-popup .popup-butt #close { float: right; }

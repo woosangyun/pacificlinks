@@ -216,6 +216,9 @@ footer .container .social .wrap > a.blog { background: url(../_images/common/foo
 footer .container .social .wrap > a.youtube { background: url(../_images/common/footer_youtube.png) no-repeat center/cover; }
 footer .container .pdf { margin-top: 20px; float: right; }
 footer .container .pdf .wrap a { display: block; width: 80%; float: right; line-height: 30px; border: 1px solid #ccc; border-radius: 30px; margin-bottom: 5px; text-align: center; font-size: 14px; }
+footer .container .awards { float: right; margin-top: 20px; }
+footer .container .awards .text { text-align: right; float: right; font-size: 14px; color: #111; padding-right: 8px; line-height: 20px; padding-top: 10px; font-weight: 300; }
+footer .container .awards .image { float: right; }
 
 @media screen and (max-width: 960px) { footer { padding: 25px 0; margin-top: 100px; }
   footer .container .cs { width: 75%; }

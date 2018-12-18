@@ -699,6 +699,25 @@
 }
 
 
+#layer-popup{
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    margin-left: -585px; 
+    z-index: 1;
+    .popup-butt{
+        background: #fff;
+        height: 50px;
+        #check{
+            float: left;
+            margin-left: 20px;
+            margin-top: 13px;
+        }
+        #close{
+            float: right;
+        }
+    }
+}
 
 
 
