@@ -361,7 +361,7 @@ footer .container .awards .image { float: right; }
   .pacific .company .title { font-size: 25px; margin-top: 10px; }
   .pacific .company .text { font-size: 13px; margin-top: 15px; line-height: 18px; }
   .pacific .interview { margin-top: 10px; float: right; position: relative; width: 100%; top: 0; } }
-#layer-popup { position: absolute; top: 150px; left: 50%; margin-left: -585px; z-index: 1; }
-#layer-popup .popup-butt { background: #fff; height: 50px; }
-#layer-popup .popup-butt #check { float: left; margin-left: 20px; margin-top: 13px; }
-#layer-popup .popup-butt #close { float: right; }
+#layer-popup, #layer-popup2 { position: absolute; top: 150px; left: 50%; margin-left: -585px; z-index: 1; }
+#layer-popup .popup-butt, #layer-popup2 .popup-butt { background: #fff; height: 50px; }
+#layer-popup .popup-butt #check, #layer-popup .popup-butt #check2, #layer-popup2 .popup-butt #check, #layer-popup2 .popup-butt #check2 { float: left; margin-left: 20px; margin-top: 13px; }
+#layer-popup .popup-butt #close, #layer-popup .popup-butt #close2, #layer-popup2 .popup-butt #close, #layer-popup2 .popup-butt #close2 { float: right; }

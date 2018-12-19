@@ -699,7 +699,7 @@
 }
 
 
-#layer-popup{
+#layer-popup,#layer-popup2{
     position: absolute;
     top: 150px;
     left: 50%;
@@ -708,12 +708,12 @@
     .popup-butt{
         background: #fff;
         height: 50px;
-        #check{
+        #check,#check2{
             float: left;
             margin-left: 20px;
             margin-top: 13px;
         }
-        #close{
+        #close,#close2{
             float: right;
         }
     }
