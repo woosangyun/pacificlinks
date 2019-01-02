@@ -23,7 +23,7 @@
 <script>
 
 	var m1 = 0;
-	var m2 = 3;
+	var m2 = 2;
 	var m3 = null;
 	
 </script>
