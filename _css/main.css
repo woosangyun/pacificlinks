@@ -68,6 +68,7 @@ h3 { font-size: 18px; }
 .list-style02 { margin-top: 20px; }
 .list-style02 > li { line-height: 26px; padding-left: 10px; text-align: left; background: url("../_images/common/bu_box.png") no-repeat 0 12px; margin-bottom: 10px; }
 .list-style02 > li p { font-weight: normal; line-height: 24px; }
+.list-style02 > li .us_ml { margin-left: 68px; }
 
 .list-style03 { margin-top: 20px; }
 .list-style03 > li { font-size: 14px; list-style: decimal; margin-left: 20px; line-height: 24px; margin-bottom: 10px; }
@@ -86,6 +87,7 @@ h3 { font-size: 18px; }
   .list-style02 { margin-top: 10px; }
   .list-style02 > li { line-height: 18px; padding-left: 10px; text-align: left; background: url("../_images/common/bu_box.png") no-repeat 0 7px; background-size: 3px; font-size: 12px; margin-bottom: 5px; }
   .list-style02 > li p { font-size: 13px; line-height: 18px; margin-bottom: 10px; }
+  .list-style02 > li .us_ml { margin-left: 56px; }
   .list-style03 { margin-top: 10px; }
   .list-style03 > li { font-size: 12px; margin-left: 10px; line-height: 17px; margin-bottom: 5px; }
   .list-style04 { margin-top: 10px; }

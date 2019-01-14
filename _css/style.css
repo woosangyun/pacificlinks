@@ -96,6 +96,7 @@ h3 { font-size: 18px; }
 .list-style02 { margin-top: 20px; }
 .list-style02 > li { line-height: 26px; padding-left: 10px; text-align: left; background: url("../_images/common/bu_box.png") no-repeat 0 12px; margin-bottom: 10px; }
 .list-style02 > li p { font-weight: normal; line-height: 24px; }
+.list-style02 > li .us_ml { margin-left: 68px; }
 
 .list-style03 { margin-top: 20px; }
 .list-style03 > li { font-size: 14px; list-style: decimal; margin-left: 20px; line-height: 24px; margin-bottom: 10px; }
@@ -114,6 +115,7 @@ h3 { font-size: 18px; }
   .list-style02 { margin-top: 10px; }
   .list-style02 > li { line-height: 18px; padding-left: 10px; text-align: left; background: url("../_images/common/bu_box.png") no-repeat 0 7px; background-size: 3px; font-size: 12px; margin-bottom: 5px; }
   .list-style02 > li p { font-size: 13px; line-height: 18px; margin-bottom: 10px; }
+  .list-style02 > li .us_ml { margin-left: 56px; }
   .list-style03 { margin-top: 10px; }
   .list-style03 > li { font-size: 12px; margin-left: 10px; line-height: 17px; margin-bottom: 5px; }
   .list-style04 { margin-top: 10px; }
@@ -923,10 +925,15 @@ em { font-style: normal; }
 .tpc-view .wrap .text-wrap .key { font-size: 24px; color: #a89174; font-weight: 500; text-transform: uppercase; }
 .tpc-view .wrap .text-wrap .title { font-size: 46px; line-height: 52px; color: #222; font-weight: 100; padding-left: 40px; padding-top: 30px; }
 .tpc-view .wrap .text-wrap .title strong { font-size: 46px; line-height: 52px; color: #222; font-weight: 500; }
+.tpc-view .wrap .text-wrap .title span { font-size: 28px; }
 .tpc-view .wrap .text-wrap ul { padding-left: 50px; }
 .tpc-view .wrap .text-wrap ul li strong { color: #444; }
 .tpc-view .flex { margin-top: 40px; display: flex; margin-left: -30px; }
 .tpc-view .flex .item { border: 1px solid #e5e5e5; padding: 40px; width: calc((100% - 60px)/2); margin-left: 30px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.tpc-view .flex .item2 { width: calc((100% - 60px)/2); margin-left: 30px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.tpc-view .flex .item2 table { margin-top: 20px; }
+.tpc-view .usmasters h5 { margin-top: 40px; }
+.tpc-view .usmasters .point_navy { color: #213969; }
 
 @media screen and (max-width: 960px) { .tpc ul li { margin-top: 110px; position: relative; height: 280px; }
   .tpc ul li a { display: block; width: 100%; height: 100%; }
@@ -946,10 +953,12 @@ em { font-style: normal; }
   .tpc-view .wrap .text-wrap .key { font-size: 15px; padding-top: 15px; padding-right: 175px; background: #fff; display: inline-block; }
   .tpc-view .wrap .text-wrap .title { font-size: 23px; line-height: 26px; padding-left: 0; padding-top: 10px; }
   .tpc-view .wrap .text-wrap .title strong { font-size: 23px; line-height: 26px; }
+  .tpc-view .wrap .text-wrap .title span { font-size: 16px; }
   .tpc-view .wrap .text-wrap .sub { padding-top: 20px; padding-left: 0; font-size: 14px; }
   .tpc-view .wrap .text-wrap ul { padding-left: 0; }
   .tpc-view .flex { margin-top: 20px; margin-left: 0; display: block; }
-  .tpc-view .flex .item { width: 100%; margin-bottom: 20px; padding: 20px; margin-left: 0; } }
+  .tpc-view .flex .item { width: 100%; margin-bottom: 20px; padding: 20px; margin-left: 0; }
+  .tpc-view .flex .item2 { width: 100%; margin-bottom: 20px; margin-left: 0; } }
 /*     Theme     */
 .theme { margin-top: 80px; }
 .theme ul { margin-left: -30px; }

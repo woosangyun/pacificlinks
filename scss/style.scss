@@ -2013,6 +2013,9 @@ em{
                     color: #222;
                     font-weight: 500;
                 }
+                span{
+                    font-size: 28px;
+                }
 			}
 			ul{
 				padding-left: 50px;
@@ -2035,7 +2038,23 @@ em{
             margin-left: 30px;
             @include box-sizing(border-box);
         }
+		.item2{
+            width: calc((100% - 60px)/2);
+            margin-left: 30px;
+            @include box-sizing(border-box);
+			table {
+				margin-top: 20px;
+			}
+        }
     }
+	.usmasters {
+		h5 {
+			margin-top:40px;
+		}
+		.point_navy {
+			color: #213969;
+		}
+	}
 }
 
 @media screen and (max-width:960px){
@@ -2144,6 +2163,9 @@ em{
                         font-size: 23px;
 					   line-height: 26px;
                     }
+                    span{
+                        font-size: 16px;
+                    }
 				}
 				.sub{
 					padding-top: 20px;
@@ -2163,6 +2185,11 @@ em{
                 width: 100%;
                 margin-bottom: 20px;
                 padding: 20px;
+                margin-left: 0;
+            }
+			.item2{
+                width: 100%;
+                margin-bottom: 20px;
                 margin-left: 0;
             }
         }
