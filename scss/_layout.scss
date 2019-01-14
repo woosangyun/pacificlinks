@@ -136,7 +136,7 @@ h2,h3{
 	.list-style01{
 		margin-top: 10px;
 		>li{
-			@include listStyle(8px, 18px, "../_images/common/bu_box.png",7px);
+			@include listStyle(8px, 18px, "../_images/common/bu_line.png",8px);
 			font-size: 12px;
 			margin-bottom: 5px;
 			span{

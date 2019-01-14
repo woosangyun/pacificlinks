@@ -82,7 +82,7 @@ h3 { font-size: 18px; }
 .list-style05 > li span { position: absolute; top: 0; left: 0; color: #99a357; padding-right: 10px; border-right: 1px solid #e5e5e5; }
 
 @media screen and (max-width: 960px) { .list-style01 { margin-top: 10px; }
-  .list-style01 > li { line-height: 18px; padding-left: 8px; text-align: left; background: url("../_images/common/bu_box.png") no-repeat 0 7px; font-size: 12px; margin-bottom: 5px; }
+  .list-style01 > li { line-height: 18px; padding-left: 8px; text-align: left; background: url("../_images/common/bu_line.png") no-repeat 0 8px; font-size: 12px; margin-bottom: 5px; }
   .list-style01 > li span { font-size: 12px; }
   .list-style02 { margin-top: 10px; }
   .list-style02 > li { line-height: 18px; padding-left: 10px; text-align: left; background: url("../_images/common/bu_box.png") no-repeat 0 7px; background-size: 3px; font-size: 12px; margin-bottom: 5px; }
