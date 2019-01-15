@@ -96,7 +96,7 @@ h3 { font-size: 18px; }
 .list-style02 { margin-top: 20px; }
 .list-style02 > li { line-height: 26px; padding-left: 10px; text-align: left; background: url("../_images/common/bu_box.png") no-repeat 0 12px; margin-bottom: 10px; }
 .list-style02 > li p { font-weight: normal; line-height: 24px; }
-.list-style02 > li .us_ml { margin-left: 68px; }
+.list-style02 > li .us_ml { margin-left: 63px; }
 
 .list-style03 { margin-top: 20px; }
 .list-style03 > li { font-size: 14px; list-style: decimal; margin-left: 20px; line-height: 24px; margin-bottom: 10px; }
@@ -115,7 +115,7 @@ h3 { font-size: 18px; }
   .list-style02 { margin-top: 10px; }
   .list-style02 > li { line-height: 18px; padding-left: 10px; text-align: left; background: url("../_images/common/bu_box.png") no-repeat 0 7px; background-size: 3px; font-size: 12px; margin-bottom: 5px; }
   .list-style02 > li p { font-size: 13px; line-height: 18px; margin-bottom: 10px; }
-  .list-style02 > li .us_ml { margin-left: 56px; }
+  .list-style02 > li .us_ml { margin-left: 50px; }
   .list-style03 { margin-top: 10px; }
   .list-style03 > li { font-size: 12px; margin-left: 10px; line-height: 17px; margin-bottom: 5px; }
   .list-style04 { margin-top: 10px; }
@@ -910,8 +910,8 @@ em { font-style: normal; }
 .tpc ul li .text-wrap .title strong { font-weight: 500; color: #222; font-size: 40px; }
 .tpc ul li .text-wrap .title span { font-size: 16px; color: #666; padding-left: 20px; }
 .tpc ul li .text-wrap .arrow { font-size: 16px; color: #222; margin-top: 25px; padding-right: 40px; background: url(../_images/main/arrow1.png) no-repeat right center/30px; display: inline-block; }
-.tpc ul li:nth-child(1) { background: url(../_images/tour/11.jpg) no-repeat center/cover; }
-.tpc ul li:nth-child(2) { background: url(../_images/tour/12.jpg) no-repeat center/cover; }
+.tpc ul li:nth-child(1) { background: url(../_images/tour/12.jpg) no-repeat center/cover; }
+.tpc ul li:nth-child(2) { background: url(../_images/tour/11.jpg) no-repeat center/cover; }
 .tpc ul li:nth-child(3) { background: url(../_images/tour/13.jpg) no-repeat center/cover; }
 .tpc ul li:nth-child(4) { background: url(../_images/tour/14.jpg) no-repeat center/cover; }
 .tpc ul li.done { filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0'/></filter></svg>#grayscale"); filter: gray; /* IE6-9 */ -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */ }
